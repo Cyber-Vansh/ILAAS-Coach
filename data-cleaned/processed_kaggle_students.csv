@@ -1,0 +1,1001 @@
+gender_male,race/ethnicity_group B,race/ethnicity_group C,race/ethnicity_group D,race/ethnicity_group E,parental level of education_bachelor's degree,parental level of education_high school,parental level of education_master's degree,parental level of education_some college,parental level of education_some high school,lunch_standard,test preparation course_none,risk_level
+False,True,False,False,False,True,False,False,False,False,True,True,High Performer
+False,False,True,False,False,False,False,False,True,False,True,False,High Performer
+False,True,False,False,False,False,False,True,False,False,True,True,High Performer
+True,False,False,False,False,False,False,False,False,False,False,True,Average
+True,False,True,False,False,False,False,False,True,False,True,True,High Performer
+False,True,False,False,False,False,False,False,False,False,True,True,High Performer
+False,True,False,False,False,False,False,False,True,False,True,False,High Performer
+True,True,False,False,False,False,False,False,True,False,False,True,Average
+True,False,False,True,False,False,True,False,False,False,False,False,Average
+False,True,False,False,False,False,True,False,False,False,False,True,Average
+True,False,True,False,False,False,False,False,False,False,True,True,Average
+True,False,False,True,False,False,False,False,False,False,True,True,Average
+False,True,False,False,False,False,True,False,False,False,True,True,High Performer
+True,False,False,False,False,False,False,False,True,False,True,False,High Performer
+False,False,False,False,False,False,False,True,False,False,True,True,Average
+False,False,True,False,False,False,False,False,False,True,True,True,High Performer
+True,False,True,False,False,False,True,False,False,False,True,True,High Performer
+False,True,False,False,False,False,False,False,False,True,False,True,At Risk
+True,False,True,False,False,False,False,True,False,False,False,False,Average
+False,False,True,False,False,False,False,False,False,False,False,True,Average
+True,False,False,True,False,False,True,False,False,False,True,True,Average
+False,True,False,False,False,False,False,False,True,False,False,False,High Performer
+True,False,False,True,False,False,False,False,True,False,True,True,Average
+False,False,True,False,False,False,False,False,False,True,True,True,High Performer
+True,False,False,True,False,True,False,False,False,False,False,False,High Performer
+True,False,False,False,False,False,False,True,False,False,False,True,High Performer
+True,True,False,False,False,False,False,False,True,False,True,True,Average
+False,False,True,False,False,True,False,False,False,False,True,True,High Performer
+True,False,True,False,False,False,True,False,False,False,True,True,Average
+False,False,False,True,False,False,False,True,False,False,True,True,Average
+False,False,False,True,False,False,False,False,True,False,True,True,High Performer
+False,True,False,False,False,False,False,False,True,False,True,True,Average
+False,False,False,False,True,False,False,True,False,False,False,True,Average
+True,False,False,True,False,False,False,False,True,False,True,True,Average
+True,False,False,False,True,False,False,False,True,False,True,True,High Performer
+True,False,False,False,True,False,False,False,False,False,True,False,High Performer
+False,False,False,True,False,False,False,False,False,False,True,True,High Performer
+False,False,False,True,False,False,False,False,False,True,False,True,Average
+False,False,False,True,False,False,False,False,False,False,False,False,High Performer
+True,True,False,False,False,False,False,False,False,False,False,True,Average
+True,False,True,False,False,False,False,False,False,False,False,True,Average
+False,False,True,False,False,False,False,False,False,False,True,True,Average
+False,True,False,False,False,False,False,False,False,False,True,True,Average
+True,True,False,False,False,False,False,False,True,False,False,False,Average
+False,False,False,False,True,False,False,False,False,False,False,True,Average
+True,True,False,False,False,False,False,False,False,False,True,True,Average
+False,False,False,False,False,False,False,False,False,False,True,False,Average
+False,False,True,False,False,False,True,False,False,False,True,True,High Performer
+False,False,False,True,False,False,False,False,False,False,False,False,Average
+True,False,True,False,False,False,True,False,False,False,True,False,High Performer
+True,False,False,False,True,False,False,False,True,False,True,True,Average
+True,False,False,False,True,False,False,False,False,False,False,False,High Performer
+True,False,True,False,False,False,False,False,True,False,True,True,Average
+True,False,False,True,False,False,True,False,False,False,True,True,High Performer
+False,False,True,False,False,False,False,False,False,True,False,False,High Performer
+False,False,True,False,False,False,True,False,False,False,False,True,At Risk
+False,False,False,False,True,False,False,False,False,False,True,False,High Performer
+True,False,False,True,False,False,False,False,False,False,True,True,Average
+True,False,False,True,False,False,False,False,True,False,True,False,Average
+False,False,True,False,False,False,False,False,False,True,False,True,At Risk
+True,False,False,False,True,True,False,False,False,False,False,False,High Performer
+True,False,False,False,False,False,False,False,False,True,False,True,At Risk
+True,False,False,False,False,False,False,False,False,False,False,True,Average
+False,False,True,False,False,False,False,False,False,False,True,True,High Performer
+False,False,False,True,False,False,False,False,False,True,True,True,Average
+True,True,False,False,False,False,False,False,False,True,True,True,Average
+True,False,False,True,False,False,False,False,False,True,False,True,At Risk
+False,False,True,False,False,False,False,False,True,False,True,True,Average
+True,True,False,False,False,False,False,False,False,False,False,True,Average
+False,False,True,False,False,False,False,False,False,False,True,True,Average
+False,False,False,True,False,False,False,False,True,False,False,False,Average
+True,False,False,True,False,False,False,False,True,False,True,False,Average
+False,False,False,False,False,False,False,False,False,False,False,True,Average
+True,False,True,False,False,False,False,False,False,True,False,True,Average
+True,False,True,False,False,False,False,False,False,True,True,True,Average
+True,True,False,False,False,False,False,False,False,False,False,True,Average
+True,False,False,False,True,False,False,False,False,True,True,True,At Risk
+True,False,False,False,False,True,False,False,False,False,True,False,High Performer
+False,False,False,True,False,False,False,False,False,True,True,False,Average
+False,False,False,False,True,False,False,True,False,False,True,True,Average
+False,True,False,False,False,False,False,False,False,False,True,True,Average
+True,True,False,False,False,False,True,False,False,False,False,True,Average
+True,False,False,False,False,False,False,False,True,False,False,False,Average
+True,False,False,False,True,False,False,False,False,False,True,True,Average
+True,False,False,True,False,False,True,False,False,False,False,True,At Risk
+False,False,True,False,False,False,False,False,True,False,True,True,High Performer
+False,False,True,False,False,False,False,False,True,False,False,True,High Performer
+False,False,False,True,False,False,False,False,False,False,True,True,High Performer
+False,False,False,False,False,False,False,False,True,False,True,True,Average
+False,False,False,True,False,False,False,False,False,True,True,True,High Performer
+False,False,True,False,False,True,False,False,False,False,True,True,High Performer
+True,False,True,False,False,False,True,False,False,False,False,True,At Risk
+True,False,True,False,False,False,True,False,False,False,True,True,High Performer
+True,False,True,False,False,False,False,False,False,False,False,False,Average
+False,True,False,False,False,False,False,False,True,False,True,True,High Performer
+True,False,True,False,False,False,False,False,False,False,False,False,High Performer
+True,True,False,False,False,False,False,False,False,True,True,False,Average
+False,False,False,False,True,False,False,False,True,False,True,False,Average
+False,False,False,True,False,False,False,False,True,False,False,True,Average
+False,False,False,True,False,True,False,False,False,False,True,True,Average
+True,True,False,False,False,False,False,False,True,False,True,True,High Performer
+True,False,False,True,False,True,False,False,False,False,True,False,High Performer
+False,False,False,True,False,False,False,False,False,False,True,True,High Performer
+True,True,False,False,False,False,True,False,False,False,True,False,Average
+True,False,True,False,False,False,False,False,True,False,True,False,High Performer
+False,False,True,False,False,False,False,False,True,False,True,True,Average
+False,False,False,True,False,False,False,True,False,False,True,True,High Performer
+True,False,False,False,True,False,False,False,False,False,True,False,Average
+False,True,False,False,False,False,False,False,False,False,False,True,Average
+False,True,False,False,False,False,False,False,False,True,True,True,Average
+False,False,False,True,False,False,False,False,False,False,False,False,High Performer
+True,False,True,False,False,False,True,False,False,False,True,True,Average
+True,False,False,False,False,False,False,False,False,False,True,True,Average
+False,False,False,True,False,False,False,False,True,False,True,True,Average
+False,False,False,False,True,True,False,False,False,False,True,False,High Performer
+True,False,True,False,False,False,True,False,False,False,True,True,High Performer
+False,True,False,False,False,True,False,False,False,False,False,True,High Performer
+False,False,False,True,False,True,False,False,False,False,True,True,High Performer
+False,False,False,True,False,False,False,False,False,True,True,True,Average
+False,False,True,False,False,False,False,False,True,False,True,True,Average
+False,False,True,False,False,True,False,False,False,False,True,False,High Performer
+True,True,False,False,False,False,False,False,False,False,True,False,High Performer
+False,False,True,False,False,False,False,False,True,False,True,False,High Performer
+True,False,False,True,False,False,True,False,False,False,False,True,Average
+True,False,False,False,True,False,False,False,True,False,True,True,High Performer
+False,True,False,False,False,False,True,False,False,False,True,True,High Performer
+True,True,False,False,False,False,False,False,False,True,True,True,Average
+True,False,False,True,False,False,False,False,True,False,True,False,High Performer
+True,False,False,True,False,False,False,True,False,False,True,True,High Performer
+False,False,False,False,False,True,False,False,False,False,True,True,Average
+True,False,False,True,False,False,False,True,False,False,True,True,High Performer
+True,False,True,False,False,False,False,False,False,True,False,False,Average
+True,False,False,False,True,False,False,False,True,False,False,False,High Performer
+False,False,True,False,False,False,False,False,True,False,True,False,High Performer
+True,False,False,True,False,True,False,False,False,False,False,False,High Performer
+True,False,True,False,False,True,False,False,False,False,True,True,Average
+True,True,False,False,False,False,False,False,False,True,True,False,Average
+True,False,False,False,True,False,True,False,False,False,True,True,Average
+False,False,True,False,False,False,False,False,False,False,True,True,Average
+True,False,False,True,False,False,False,False,True,False,True,False,Average
+False,False,False,True,False,False,False,False,False,True,True,True,High Performer
+False,False,True,False,False,False,False,False,True,False,False,True,Average
+False,False,False,False,True,False,False,False,True,False,False,False,Average
+True,False,False,False,False,False,True,False,False,False,True,True,Average
+True,False,False,True,False,False,False,False,True,False,True,True,High Performer
+False,False,True,False,False,False,False,False,True,False,False,True,At Risk
+True,True,False,False,False,False,False,False,False,True,True,True,High Performer
+True,False,True,False,False,False,False,False,False,False,False,True,Average
+False,False,False,True,False,True,False,False,False,False,True,False,High Performer
+True,False,False,False,True,False,False,False,False,False,False,False,High Performer
+True,False,False,False,False,False,False,False,False,True,True,False,Average
+True,False,False,False,False,True,False,False,False,False,True,True,High Performer
+False,True,False,False,False,False,False,False,False,False,True,False,Average
+True,False,False,True,False,True,False,False,False,False,True,True,Average
+True,False,False,True,False,False,False,False,False,True,True,True,Average
+False,False,True,False,False,False,False,False,True,False,True,False,High Performer
+False,False,False,False,True,False,True,False,False,False,False,False,High Performer
+True,True,False,False,False,False,False,False,True,False,False,True,Average
+False,True,False,False,False,False,False,False,False,False,True,False,High Performer
+True,False,False,True,False,False,False,False,False,False,False,True,Average
+True,True,False,False,False,False,False,False,False,False,False,False,High Performer
+False,False,False,False,True,False,False,False,True,False,False,False,High Performer
+True,True,False,False,False,False,False,True,False,False,False,True,Average
+True,False,True,False,False,False,True,False,False,False,True,True,Average
+False,False,False,False,True,False,False,True,False,False,True,True,High Performer
+False,False,True,False,False,True,False,False,False,False,True,False,High Performer
+True,False,True,False,False,False,True,False,False,False,False,False,Average
+False,True,False,False,False,False,False,True,False,False,False,False,High Performer
+False,True,False,False,False,False,True,False,False,False,True,False,High Performer
+False,False,True,False,False,False,False,False,True,False,False,False,High Performer
+True,False,False,False,False,False,True,False,False,False,True,False,High Performer
+True,False,False,False,True,False,False,False,False,True,True,True,High Performer
+False,False,False,True,False,False,False,False,True,False,True,True,High Performer
+False,False,True,False,False,False,False,False,False,False,True,True,Average
+False,False,True,False,False,True,False,False,False,False,False,False,Average
+False,False,True,False,False,False,False,True,False,False,True,False,High Performer
+False,True,False,False,False,False,True,False,False,False,False,False,Average
+False,False,True,False,False,False,False,False,False,False,True,False,High Performer
+False,True,False,False,False,False,False,True,False,False,False,False,Average
+False,False,False,True,False,False,False,False,False,True,True,False,High Performer
+True,False,True,False,False,False,False,True,False,False,False,False,Average
+False,False,True,False,False,False,False,False,True,False,False,True,Average
+False,False,False,False,True,False,True,False,False,False,True,True,Average
+False,False,False,True,False,False,False,False,False,False,True,True,Average
+True,False,True,False,False,False,False,False,False,True,False,False,Average
+True,False,True,False,False,False,False,False,False,False,False,False,Average
+True,False,False,False,True,False,True,False,False,False,True,True,High Performer
+True,False,False,True,False,False,False,False,False,True,True,False,Average
+True,True,False,False,False,False,False,False,False,True,False,True,Average
+False,False,True,False,False,True,False,False,False,False,True,True,High Performer
+False,False,False,False,True,False,False,False,False,False,True,True,Average
+True,False,False,True,False,False,False,False,True,False,True,False,High Performer
+False,True,False,False,False,False,False,False,False,True,True,True,Average
+True,False,False,True,False,False,False,False,True,False,True,False,Average
+False,False,True,False,False,False,False,True,False,False,True,False,High Performer
+True,False,False,True,False,False,False,False,False,False,True,True,Average
+True,False,True,False,False,False,False,False,False,True,False,False,Average
+True,False,False,False,True,False,True,False,False,False,False,True,Average
+False,True,False,False,False,False,False,False,True,False,False,True,Average
+False,True,False,False,False,True,False,False,False,False,False,True,High Performer
+False,False,True,False,False,False,False,False,False,False,True,False,High Performer
+False,False,False,True,False,False,False,False,True,False,False,True,High Performer
+True,False,True,False,False,False,False,False,False,False,True,True,High Performer
+False,True,False,False,False,False,False,False,False,False,True,True,Average
+True,False,True,False,False,False,False,False,True,False,True,True,Average
+True,False,False,True,False,False,False,False,False,True,True,False,High Performer
+True,False,False,False,True,True,False,False,False,False,True,True,Average
+True,False,False,False,True,False,True,False,False,False,True,False,High Performer
+False,True,False,False,False,False,False,False,True,False,False,True,High Performer
+False,True,False,False,False,False,False,False,True,False,False,True,Average
+True,False,False,True,False,False,False,False,False,True,False,False,High Performer
+True,False,True,False,False,False,False,False,True,False,False,True,At Risk
+False,False,True,False,False,False,True,False,False,False,False,True,Average
+True,False,True,False,False,False,False,False,False,False,False,False,Average
+True,False,False,False,True,False,True,False,False,False,True,False,High Performer
+True,True,False,False,False,False,False,False,False,True,True,False,High Performer
+False,False,False,False,True,False,False,False,False,False,False,False,High Performer
+False,False,True,False,False,False,True,False,False,False,False,True,At Risk
+True,True,False,False,False,False,True,False,False,False,False,True,High Performer
+True,True,False,False,False,False,False,False,False,True,True,False,Average
+False,False,False,True,False,False,True,False,False,False,True,False,Average
+True,True,False,False,False,False,False,False,False,False,True,True,High Performer
+False,False,True,False,False,False,False,False,False,True,False,True,Average
+True,False,False,True,False,False,False,False,False,True,True,True,High Performer
+False,True,False,False,False,False,False,False,False,False,True,False,Average
+False,False,False,False,True,False,False,True,False,False,False,True,Average
+False,False,True,False,False,False,False,False,True,False,True,True,High Performer
+True,False,False,True,False,False,True,False,False,False,True,True,Average
+True,False,False,False,False,False,False,False,False,True,False,True,Average
+False,False,True,False,False,False,False,False,True,False,True,False,High Performer
+True,False,False,True,False,False,False,False,True,False,True,True,Average
+True,False,True,False,False,False,False,False,False,False,True,True,Average
+False,True,False,False,False,True,False,False,False,False,True,True,High Performer
+True,False,False,False,True,False,False,False,False,True,True,True,High Performer
+True,False,True,False,False,True,False,False,False,False,True,False,High Performer
+True,False,False,True,False,False,False,False,False,False,True,True,High Performer
+True,False,False,True,False,True,False,False,False,False,False,True,Average
+False,False,False,True,False,False,False,False,False,True,True,False,Average
+True,True,False,False,False,False,False,False,True,False,True,True,Average
+True,False,True,False,False,False,False,False,False,False,True,True,High Performer
+True,False,False,True,False,False,True,False,False,False,False,False,Average
+False,False,False,False,True,True,False,False,False,False,True,True,High Performer
+False,False,False,True,False,False,True,False,False,False,True,True,Average
+True,False,False,False,True,False,False,False,True,False,True,True,Average
+True,False,False,True,False,False,False,False,False,True,True,True,High Performer
+True,False,True,False,False,False,False,False,False,False,True,True,High Performer
+True,False,False,False,True,False,False,False,False,False,True,True,High Performer
+False,True,False,False,False,False,True,False,False,False,True,False,Average
+False,True,False,False,False,False,True,False,False,False,True,True,Average
+True,False,True,False,False,False,True,False,False,False,True,True,Average
+True,False,False,False,False,False,False,False,False,True,True,False,Average
+False,False,False,True,False,False,False,False,True,False,False,True,High Performer
+False,True,False,False,False,False,False,False,False,True,True,False,Average
+True,False,False,True,False,False,False,True,False,False,True,True,High Performer
+True,False,False,True,False,False,True,False,False,False,True,True,Average
+False,False,False,False,True,False,False,False,True,False,True,True,Average
+False,False,True,False,False,False,False,False,False,False,False,True,Average
+True,False,True,False,False,False,False,False,False,False,True,False,High Performer
+False,True,False,False,False,False,False,False,True,False,True,True,High Performer
+False,False,True,False,False,False,False,True,False,False,False,False,High Performer
+False,False,True,False,False,False,False,False,False,True,False,False,High Performer
+True,False,True,False,False,False,False,False,True,False,True,False,High Performer
+False,False,True,False,False,False,False,False,False,True,False,True,Average
+False,False,False,False,True,False,True,False,False,False,True,True,High Performer
+True,False,False,True,False,False,True,False,False,False,True,True,High Performer
+True,False,False,True,False,False,False,False,False,True,False,True,Average
+False,False,True,False,False,True,False,False,False,False,True,True,High Performer
+False,False,False,True,False,False,True,False,False,False,True,True,High Performer
+False,False,False,True,False,False,False,False,False,False,True,False,High Performer
+False,False,False,False,True,False,False,False,True,False,False,True,High Performer
+True,False,True,False,False,True,False,False,False,False,True,True,Average
+True,False,True,False,False,False,False,False,True,False,True,True,Average
+False,False,False,True,False,False,False,False,False,False,False,True,Average
+False,False,False,True,False,False,False,False,True,False,True,True,Average
+True,True,False,False,False,False,False,False,True,False,True,False,High Performer
+True,False,True,False,False,True,False,False,False,False,True,True,High Performer
+False,False,True,False,False,False,False,False,False,True,True,False,High Performer
+False,False,False,False,True,False,True,False,False,False,True,False,Average
+False,False,True,False,False,False,False,False,False,True,False,True,High Performer
+True,True,False,False,False,True,False,False,False,False,False,True,Average
+True,False,False,True,False,False,True,False,False,False,True,True,Average
+True,False,False,True,False,False,True,False,False,False,True,True,Average
+False,False,False,True,False,True,False,False,False,False,False,True,High Performer
+False,False,False,True,False,False,False,False,True,False,False,False,High Performer
+False,True,False,False,False,False,False,False,False,True,True,True,Average
+True,True,False,False,False,False,False,False,False,False,True,False,High Performer
+True,False,False,False,True,False,False,False,False,False,True,False,High Performer
+False,True,False,False,False,False,False,False,False,True,True,True,High Performer
+True,True,False,False,False,True,False,False,False,False,False,True,High Performer
+True,False,False,False,True,False,False,False,False,True,True,False,High Performer
+True,False,True,False,False,False,False,False,False,False,True,True,High Performer
+True,False,False,True,False,False,False,False,False,True,True,True,High Performer
+True,False,True,False,False,False,False,False,False,True,True,False,Average
+False,False,False,False,True,True,False,False,False,False,True,True,High Performer
+True,False,False,True,False,False,True,False,False,False,False,False,High Performer
+True,True,False,False,False,False,False,False,False,False,False,True,Average
+True,False,False,False,False,False,False,False,False,True,True,False,Average
+True,False,False,False,True,False,False,False,False,False,True,False,High Performer
+True,False,True,False,False,False,True,False,False,False,False,False,Average
+True,False,False,True,False,False,False,False,False,False,False,True,High Performer
+True,False,False,False,False,False,False,False,True,False,False,False,High Performer
+True,False,False,True,False,False,False,False,False,True,False,True,Average
+False,False,True,False,False,False,False,False,False,False,True,False,High Performer
+True,True,False,False,False,False,False,False,False,False,True,True,High Performer
+False,False,True,False,False,False,False,False,False,False,True,False,High Performer
+True,False,False,False,False,False,False,False,True,False,True,True,Average
+True,False,False,False,True,False,False,False,True,False,True,False,High Performer
+True,False,True,False,False,False,False,False,False,True,True,True,Average
+False,True,False,False,False,False,False,False,False,False,False,True,Average
+False,False,False,True,False,False,True,False,False,False,False,True,Average
+False,True,False,False,False,False,False,False,False,False,True,True,High Performer
+True,True,False,False,False,True,False,False,False,False,True,True,Average
+True,False,False,True,False,True,False,False,False,False,True,False,Average
+False,False,True,False,False,False,False,False,False,False,False,False,Average
+False,False,True,False,False,True,False,False,False,False,True,False,Average
+True,False,True,False,False,False,True,False,False,False,True,True,Average
+False,False,False,True,False,False,False,True,False,False,True,False,High Performer
+True,False,True,False,False,False,False,False,False,False,True,True,High Performer
+True,True,False,False,False,True,False,False,False,False,True,True,Average
+False,False,False,True,False,False,False,False,False,False,False,True,Average
+False,False,True,False,False,False,True,False,False,False,False,False,High Performer
+False,False,False,False,True,False,True,False,False,False,True,True,High Performer
+False,False,True,False,False,False,False,False,True,False,True,True,High Performer
+False,False,True,False,False,False,False,False,False,True,False,True,Average
+False,False,True,False,False,False,True,False,False,False,False,True,Average
+False,False,True,False,False,False,False,False,True,False,True,True,High Performer
+True,False,True,False,False,False,False,False,True,False,True,True,Average
+True,False,False,False,False,False,False,False,True,False,False,True,At Risk
+True,False,True,False,False,False,False,False,False,False,True,False,High Performer
+False,True,False,False,False,False,False,False,False,True,True,True,Average
+True,False,True,False,False,False,True,False,False,False,True,True,Average
+True,False,True,False,False,False,False,False,False,False,True,True,At Risk
+True,False,False,False,True,False,False,False,False,False,True,False,Average
+True,True,False,False,False,False,False,False,False,False,True,True,High Performer
+False,False,True,False,False,True,False,False,False,False,True,True,High Performer
+False,True,False,False,False,False,False,False,True,False,False,True,Average
+True,False,False,True,False,False,False,False,False,True,True,False,High Performer
+True,False,True,False,False,False,False,False,False,False,True,True,Average
+False,True,False,False,False,False,False,False,False,True,False,True,At Risk
+False,False,False,True,False,False,False,False,False,True,False,False,Average
+True,False,True,False,False,False,True,False,False,False,False,True,Average
+False,False,True,False,False,False,True,False,False,False,True,True,Average
+False,True,False,False,False,False,True,False,False,False,True,False,High Performer
+True,False,False,True,False,False,False,False,False,False,True,False,Average
+True,False,False,True,False,False,False,False,True,False,True,True,High Performer
+False,False,True,False,False,False,True,False,False,False,True,True,High Performer
+True,True,False,False,False,False,False,False,True,False,True,True,Average
+False,False,True,False,False,True,False,False,False,False,True,False,High Performer
+True,False,False,True,False,False,True,False,False,False,False,True,High Performer
+True,False,False,False,True,False,False,False,False,False,True,True,High Performer
+False,True,False,False,False,True,False,False,False,False,True,True,Average
+True,False,False,False,True,False,False,False,True,False,True,True,Average
+False,False,True,False,False,False,False,False,True,False,True,False,High Performer
+False,False,True,False,False,False,False,False,False,False,True,True,Average
+False,False,True,False,False,False,False,False,True,False,True,True,Average
+False,True,False,False,False,True,False,False,False,False,True,True,Average
+True,False,False,False,False,False,False,False,False,False,True,True,Average
+False,False,True,False,False,False,False,False,True,False,False,False,Average
+True,False,False,True,False,False,False,False,True,False,False,True,Average
+False,False,False,True,False,False,False,False,True,False,True,True,High Performer
+False,True,False,False,False,False,True,False,False,False,True,True,Average
+True,True,False,False,False,False,False,False,False,True,True,False,High Performer
+False,False,True,False,False,False,False,False,True,False,True,True,Average
+False,False,False,True,False,False,False,False,False,True,False,True,At Risk
+True,False,True,False,False,False,False,False,True,False,True,True,Average
+True,False,False,False,False,True,False,False,False,False,False,False,Average
+True,False,True,False,False,False,True,False,False,False,True,False,Average
+True,False,True,False,False,True,False,False,False,False,False,True,Average
+False,False,False,False,False,False,False,False,False,True,False,True,Average
+False,False,False,True,False,False,False,False,False,True,True,True,High Performer
+True,False,False,False,True,False,False,False,True,False,True,True,High Performer
+False,False,True,False,False,False,False,False,True,False,False,False,Average
+True,False,False,True,False,False,False,False,False,True,True,True,High Performer
+False,False,False,True,False,False,False,False,True,False,True,False,High Performer
+False,False,False,True,False,True,False,False,False,False,True,True,Average
+True,False,False,False,True,False,False,False,False,False,False,True,Average
+False,False,False,True,False,False,False,False,False,True,True,True,High Performer
+False,False,False,True,False,False,False,True,False,False,False,False,High Performer
+False,False,False,False,False,False,False,False,False,True,True,True,High Performer
+True,False,False,False,False,True,False,False,False,False,True,True,Average
+False,True,False,False,False,False,False,False,False,False,True,True,High Performer
+True,False,True,False,False,False,False,False,False,False,True,False,High Performer
+True,False,True,False,False,False,False,True,False,False,False,True,High Performer
+False,False,False,False,True,False,False,False,False,True,False,True,Average
+False,False,False,False,False,False,False,False,False,True,False,True,Average
+False,False,False,False,True,False,False,False,True,False,True,True,High Performer
+False,False,False,False,True,True,False,False,False,False,True,True,Average
+False,False,True,False,False,False,False,False,False,False,False,True,Average
+False,False,False,True,False,False,True,False,False,False,True,True,Average
+True,False,False,True,False,False,False,True,False,False,True,True,High Performer
+True,False,False,False,True,False,False,False,False,True,False,False,Average
+False,False,False,True,False,False,False,False,True,False,True,True,High Performer
+True,False,False,False,True,False,False,False,True,False,True,True,High Performer
+True,False,True,False,False,False,False,False,False,False,True,False,Average
+False,False,True,False,False,False,False,False,False,True,True,False,High Performer
+True,False,False,False,False,False,True,False,False,False,False,True,Average
+False,True,False,False,False,False,True,False,False,False,False,True,Average
+False,False,True,False,False,False,False,False,False,False,True,True,High Performer
+True,True,False,False,False,False,False,False,False,True,True,True,Average
+True,False,False,True,False,False,False,False,False,True,True,True,Average
+False,False,True,False,False,False,False,False,False,True,True,False,Average
+True,False,False,False,False,False,False,False,True,False,True,True,Average
+False,False,False,False,False,False,False,False,True,False,False,True,Average
+False,False,False,True,False,False,True,False,False,False,True,False,High Performer
+False,False,True,False,False,False,True,False,False,False,True,True,Average
+False,False,True,False,False,False,False,False,False,True,True,True,Average
+True,True,False,False,False,False,False,False,False,False,True,False,Average
+False,True,False,False,False,False,False,False,False,False,True,True,High Performer
+False,False,False,True,False,False,True,False,False,False,False,False,Average
+True,False,False,True,False,False,False,False,False,False,True,False,High Performer
+False,False,False,True,False,False,False,True,False,False,True,False,High Performer
+True,False,False,False,True,False,False,False,True,False,True,False,High Performer
+True,False,False,True,False,False,False,False,False,False,True,True,Average
+True,True,False,False,False,False,False,False,False,True,True,False,Average
+False,False,True,False,False,True,False,False,False,False,False,False,Average
+True,False,False,False,True,False,True,False,False,False,True,True,High Performer
+True,False,True,False,False,True,False,False,False,False,True,False,High Performer
+True,False,True,False,False,False,False,False,False,False,True,True,High Performer
+True,False,False,True,False,False,False,False,True,False,True,True,Average
+True,False,False,False,True,False,True,False,False,False,False,False,Average
+False,False,True,False,False,False,False,False,False,False,False,False,High Performer
+False,False,False,True,False,False,True,False,False,False,True,False,Average
+False,False,False,True,False,False,False,True,False,False,False,False,Average
+False,False,False,False,False,False,False,False,False,True,True,False,High Performer
+True,True,False,False,False,False,False,False,True,False,False,True,At Risk
+False,False,True,False,False,False,False,False,True,False,False,True,Average
+True,False,True,False,False,True,False,False,False,False,True,True,High Performer
+True,False,True,False,False,False,False,False,False,True,False,True,Average
+True,False,False,False,False,False,False,False,False,True,False,True,Average
+True,False,True,False,False,False,False,False,False,True,False,True,Average
+True,False,True,False,False,False,False,False,False,False,False,True,Average
+False,False,True,False,False,False,True,False,False,False,True,True,Average
+True,False,True,False,False,False,True,False,False,False,True,True,Average
+False,False,False,False,False,False,False,False,False,True,False,True,Average
+True,False,True,False,False,False,False,False,False,True,True,True,Average
+True,False,True,False,False,False,False,False,True,False,False,False,Average
+True,False,False,True,False,False,False,False,False,False,True,True,Average
+True,False,False,True,False,False,False,False,False,False,False,True,High Performer
+True,False,True,False,False,False,True,False,False,False,True,True,Average
+True,False,False,True,False,False,False,False,False,True,True,False,High Performer
+False,False,True,False,False,False,False,False,True,False,True,False,High Performer
+False,False,False,True,False,False,True,False,False,False,True,True,High Performer
+False,False,False,False,False,False,False,False,False,True,False,True,Average
+False,True,False,False,False,False,False,False,False,False,True,True,High Performer
+True,False,False,False,False,False,False,False,False,True,False,True,High Performer
+False,False,True,False,False,False,False,False,False,True,True,False,High Performer
+True,False,False,True,False,False,False,False,True,False,False,True,Average
+True,False,True,False,False,False,True,False,False,False,True,False,High Performer
+True,True,False,False,False,False,True,False,False,False,True,True,Average
+True,True,False,False,False,False,False,False,False,False,True,True,High Performer
+False,False,True,False,False,False,False,False,True,False,False,False,High Performer
+False,False,False,False,True,False,False,False,True,False,True,True,High Performer
+False,False,True,False,False,False,False,False,False,False,False,True,High Performer
+True,False,True,False,False,False,False,False,True,False,False,True,Average
+False,False,True,False,False,False,False,False,False,False,False,True,Average
+True,False,True,False,False,True,False,False,False,False,False,True,Average
+False,False,False,True,False,True,False,False,False,False,True,True,High Performer
+True,False,False,True,False,False,False,False,False,False,False,True,Average
+False,False,False,False,True,True,False,False,False,False,True,True,High Performer
+True,True,False,False,False,False,True,False,False,False,True,False,Average
+True,False,True,False,False,True,False,False,False,False,False,True,Average
+True,True,False,False,False,False,False,False,True,False,False,True,Average
+False,False,False,False,True,False,False,False,True,False,True,True,High Performer
+False,False,True,False,False,False,False,False,True,False,False,True,High Performer
+True,False,False,False,False,True,False,False,False,False,True,False,Average
+False,False,True,False,False,False,False,False,True,False,True,True,High Performer
+False,False,False,True,False,False,False,False,False,False,False,True,At Risk
+True,False,False,False,False,False,True,False,False,False,False,False,Average
+False,False,False,False,False,False,True,False,False,False,False,False,High Performer
+True,False,True,False,False,False,False,False,True,False,True,True,High Performer
+False,False,True,False,False,False,False,False,False,False,True,False,High Performer
+False,False,True,False,False,False,True,False,False,False,True,True,Average
+False,False,True,False,False,False,False,False,False,False,True,False,High Performer
+False,False,False,True,False,False,False,False,False,True,True,True,Average
+False,True,False,False,False,False,False,False,False,False,True,False,High Performer
+False,False,False,True,False,True,False,False,False,False,True,False,High Performer
+True,False,False,False,True,True,False,False,False,False,True,False,Average
+True,False,False,True,False,False,False,False,False,False,True,True,High Performer
+False,False,False,True,False,False,False,True,False,False,True,True,Average
+True,False,False,False,True,False,False,False,False,False,True,True,High Performer
+True,True,False,False,False,False,True,False,False,False,True,False,High Performer
+False,False,False,True,False,False,False,False,False,False,False,True,Average
+True,False,True,False,False,False,False,False,True,False,False,True,Average
+True,False,False,False,False,False,True,False,False,False,True,True,Average
+False,True,False,False,False,False,False,False,False,False,True,True,Average
+True,False,True,False,False,False,True,False,False,False,True,True,High Performer
+True,False,False,True,False,False,False,False,True,False,False,True,Average
+False,False,True,False,False,False,False,False,False,False,False,True,Average
+True,True,False,False,False,False,False,False,False,True,True,False,Average
+True,False,False,False,False,False,False,False,False,False,False,False,High Performer
+False,False,False,False,False,False,False,False,False,False,False,True,High Performer
+False,False,True,False,False,False,False,False,False,False,True,True,Average
+False,False,True,False,False,False,False,False,True,False,True,True,High Performer
+False,False,True,False,False,True,False,False,False,False,True,True,High Performer
+False,True,False,False,False,False,True,False,False,False,True,True,Average
+True,False,False,True,False,False,True,False,False,False,True,False,Average
+False,False,True,False,False,False,False,False,True,False,True,True,Average
+False,False,False,True,False,False,False,False,True,False,False,False,High Performer
+False,True,False,False,False,False,False,False,False,True,True,True,Average
+True,False,False,False,True,False,False,False,True,False,True,True,High Performer
+False,False,False,True,False,False,False,True,False,False,True,True,High Performer
+False,True,False,False,False,False,False,False,False,False,True,False,High Performer
+True,False,True,False,False,False,False,False,True,False,False,True,Average
+False,False,False,False,True,False,False,False,False,False,True,False,High Performer
+False,False,False,True,False,False,False,True,False,False,False,True,Average
+False,True,False,False,False,False,False,False,False,True,True,True,High Performer
+True,False,False,False,False,False,True,False,False,False,True,True,Average
+True,True,False,False,False,True,False,False,False,False,False,True,Average
+True,False,True,False,False,False,False,True,False,False,True,True,High Performer
+False,False,True,False,False,True,False,False,False,False,True,True,High Performer
+True,False,False,True,False,False,False,False,True,False,True,True,High Performer
+True,False,False,False,False,False,False,False,False,True,True,True,Average
+True,False,False,True,False,False,False,False,False,True,False,True,Average
+False,True,False,False,False,False,False,False,False,True,True,False,Average
+False,True,False,False,False,False,False,True,False,False,False,False,High Performer
+False,False,True,False,False,False,False,False,False,True,True,False,High Performer
+False,False,False,True,False,False,False,False,True,False,True,True,High Performer
+False,False,False,False,True,False,False,False,True,False,True,False,High Performer
+False,False,False,True,False,False,False,False,False,True,True,False,High Performer
+False,True,False,False,False,False,True,False,False,False,False,False,High Performer
+True,False,False,True,False,False,False,False,True,False,True,True,Average
+False,False,True,False,False,False,False,False,False,False,True,True,High Performer
+True,False,False,True,False,True,False,False,False,False,True,True,Average
+True,False,True,False,False,False,False,True,False,False,False,True,Average
+True,False,True,False,False,False,True,False,False,False,True,False,Average
+True,False,False,False,True,False,False,False,True,False,True,True,Average
+True,False,True,False,False,False,False,False,False,True,False,False,Average
+False,False,True,False,False,False,True,False,False,False,False,True,Average
+False,False,False,True,False,True,False,False,False,False,False,True,At Risk
+False,False,True,False,False,False,False,False,False,False,True,True,Average
+False,False,True,False,False,False,False,False,False,False,True,False,Average
+False,False,True,False,False,False,False,False,False,True,True,True,Average
+True,False,False,False,True,False,False,False,False,False,True,False,Average
+False,False,False,False,True,False,False,False,False,False,True,False,High Performer
+True,True,False,False,False,False,True,False,False,False,True,False,High Performer
+False,False,True,False,False,True,False,False,False,False,False,False,High Performer
+True,False,True,False,False,False,False,False,False,False,True,False,Average
+False,False,False,True,False,False,True,False,False,False,True,True,Average
+True,False,False,False,True,True,False,False,False,False,True,False,High Performer
+True,False,False,False,False,False,False,False,False,False,True,False,High Performer
+True,False,True,False,False,False,True,False,False,False,True,False,High Performer
+True,False,False,True,False,False,False,False,False,False,False,False,High Performer
+False,False,True,False,False,False,False,False,False,False,True,True,High Performer
+False,False,False,True,False,False,False,False,False,False,True,True,High Performer
+False,False,False,True,False,False,False,True,False,False,True,True,Average
+True,False,False,False,True,False,False,False,False,True,False,False,High Performer
+False,False,False,False,False,False,False,False,False,True,True,False,High Performer
+True,False,True,False,False,False,True,False,False,False,True,False,Average
+False,False,True,False,False,False,True,False,False,False,False,True,Average
+True,False,True,False,False,False,False,True,False,False,True,True,High Performer
+True,False,True,False,False,False,False,False,False,True,False,True,High Performer
+True,True,False,False,False,True,False,False,False,False,False,False,High Performer
+False,True,False,False,False,False,False,False,False,False,True,True,Average
+True,False,False,True,False,False,False,False,True,False,False,True,Average
+True,False,False,False,True,False,False,False,False,False,True,True,Average
+False,False,True,False,False,False,False,False,True,False,False,True,At Risk
+False,False,True,False,False,False,False,False,False,False,True,False,Average
+True,False,True,False,False,False,False,True,False,False,False,True,Average
+False,True,False,False,False,False,False,False,False,False,False,True,Average
+True,False,False,True,False,False,False,False,False,True,True,True,Average
+False,False,False,True,False,False,False,False,True,False,True,False,High Performer
+False,False,True,False,False,False,False,False,True,False,True,True,High Performer
+True,False,True,False,False,True,False,False,False,False,True,False,High Performer
+False,False,False,True,False,False,False,False,True,False,False,False,High Performer
+True,True,False,False,False,True,False,False,False,False,False,True,Average
+True,True,False,False,False,False,False,False,False,False,True,True,Average
+False,False,False,False,True,True,False,False,False,False,False,False,High Performer
+False,False,False,True,False,False,False,True,False,False,False,False,High Performer
+True,True,False,False,False,False,True,False,False,False,False,True,Average
+True,False,False,True,False,True,False,False,False,False,False,True,Average
+True,True,False,False,False,False,False,False,True,False,True,False,High Performer
+True,False,False,False,False,True,False,False,False,False,True,True,High Performer
+False,False,True,False,False,False,False,False,True,False,True,True,Average
+False,False,True,False,False,False,True,False,False,False,False,False,Average
+False,False,False,False,True,False,True,False,False,False,True,True,High Performer
+True,False,False,False,False,False,False,False,False,False,False,False,Average
+True,False,False,False,False,False,False,False,True,False,True,False,Average
+False,True,False,False,False,False,True,False,False,False,True,True,High Performer
+False,True,False,False,False,False,False,False,True,False,False,False,Average
+False,False,False,True,False,False,False,True,False,False,True,True,Average
+False,False,False,True,False,False,False,False,False,True,True,True,High Performer
+False,False,False,False,True,False,False,False,False,True,True,True,High Performer
+False,False,False,True,False,True,False,False,False,False,False,True,High Performer
+False,False,False,True,False,False,False,False,False,False,True,False,High Performer
+False,False,False,True,False,False,False,False,True,False,True,True,High Performer
+False,False,True,False,False,False,False,False,False,False,True,True,High Performer
+False,False,False,False,False,False,True,False,False,False,True,True,Average
+False,False,True,False,False,True,False,False,False,False,False,True,Average
+False,False,True,False,False,False,False,False,True,False,True,True,Average
+False,False,False,False,False,False,False,False,False,True,True,True,Average
+True,False,True,False,False,False,False,False,True,False,False,True,Average
+True,False,False,False,False,False,False,False,False,True,True,True,Average
+True,False,False,False,True,True,False,False,False,False,True,True,Average
+False,False,False,False,True,False,True,False,False,False,True,True,High Performer
+False,False,True,False,False,True,False,False,False,False,True,False,High Performer
+False,False,True,False,False,True,False,False,False,False,True,False,Average
+True,True,False,False,False,False,True,False,False,False,False,True,At Risk
+True,False,False,False,False,False,False,False,False,True,True,True,Average
+False,False,False,True,False,False,True,False,False,False,True,True,High Performer
+False,False,False,True,False,False,False,False,False,True,True,True,High Performer
+False,False,False,True,False,False,False,True,False,False,True,True,Average
+False,False,True,False,False,False,True,False,False,False,True,True,At Risk
+False,False,False,False,True,False,False,False,True,False,True,True,High Performer
+True,False,False,True,False,False,True,False,False,False,False,True,Average
+True,False,False,True,False,False,False,True,False,False,False,False,High Performer
+True,False,True,False,False,False,False,False,False,True,True,True,Average
+False,False,True,False,False,False,False,False,False,False,True,True,High Performer
+False,False,True,False,False,False,False,True,False,False,False,True,Average
+False,False,False,False,True,False,False,False,True,False,True,True,Average
+False,True,False,False,False,False,False,False,False,False,True,True,Average
+True,False,False,True,False,False,False,False,True,False,False,False,Average
+False,False,True,False,False,False,False,False,True,False,True,True,Average
+True,False,True,False,False,True,False,False,False,False,True,False,High Performer
+False,False,True,False,False,False,False,False,False,False,True,True,High Performer
+False,False,False,False,False,False,False,False,False,False,True,True,High Performer
+False,False,True,False,False,False,True,False,False,False,True,True,Average
+False,False,False,False,True,True,False,False,False,False,True,True,Average
+True,False,False,True,False,True,False,False,False,False,True,True,High Performer
+True,False,False,True,False,False,False,True,False,False,True,True,High Performer
+True,False,True,False,False,False,False,False,False,False,False,False,Average
+False,False,True,False,False,False,True,False,False,False,False,True,Average
+True,True,False,False,False,True,False,False,False,False,False,True,Average
+True,False,True,False,False,False,True,False,False,False,False,False,Average
+True,False,False,False,False,False,False,False,True,False,True,False,High Performer
+False,False,False,False,True,True,False,False,False,False,False,True,Average
+True,False,False,True,False,False,False,False,True,False,True,False,High Performer
+True,True,False,False,False,False,False,False,False,False,False,False,Average
+True,False,False,True,False,False,False,False,False,False,True,True,Average
+True,False,False,True,False,False,False,False,True,False,False,True,Average
+False,False,True,False,False,False,False,False,False,True,True,False,Average
+True,False,False,True,False,False,False,False,True,False,True,True,Average
+True,True,False,False,False,False,True,False,False,False,True,True,Average
+False,True,False,False,False,True,False,False,False,False,True,False,High Performer
+False,False,True,False,False,False,True,False,False,False,True,True,High Performer
+True,False,False,True,False,False,False,False,False,True,True,True,High Performer
+True,False,False,False,False,False,True,False,False,False,True,True,Average
+False,True,False,False,False,False,True,False,False,False,False,False,High Performer
+False,False,False,True,False,False,False,False,False,True,True,False,High Performer
+True,False,False,False,True,False,False,False,True,False,True,True,High Performer
+False,False,False,True,False,False,False,False,False,False,True,True,High Performer
+True,False,False,True,False,False,True,False,False,False,True,True,Average
+False,False,False,True,False,False,False,False,False,False,False,False,High Performer
+False,True,False,False,False,False,False,False,False,True,False,True,High Performer
+False,False,False,False,True,False,True,False,False,False,True,False,High Performer
+True,True,False,False,False,False,True,False,False,False,True,True,Average
+False,True,False,False,False,True,False,False,False,False,True,False,High Performer
+False,False,False,True,False,False,False,False,False,False,True,True,Average
+False,False,False,False,True,False,True,False,False,False,False,True,Average
+False,True,False,False,False,False,True,False,False,False,True,True,Average
+False,False,False,True,False,False,False,False,True,False,True,False,High Performer
+True,False,True,False,False,False,False,False,False,True,False,False,Average
+False,False,False,False,False,False,True,False,False,False,True,False,High Performer
+False,False,False,True,False,False,False,False,True,False,True,False,High Performer
+False,False,False,False,False,False,False,False,False,False,True,False,Average
+False,True,False,False,False,False,False,False,False,True,True,True,High Performer
+False,True,False,False,False,False,False,False,True,False,True,True,Average
+True,False,True,False,False,False,False,False,False,False,False,True,Average
+True,False,False,True,False,False,False,False,False,True,True,True,Average
+False,False,False,True,False,False,False,False,False,False,False,True,Average
+True,False,False,True,False,False,False,False,False,False,True,True,High Performer
+True,False,True,False,False,False,False,False,True,False,False,True,High Performer
+True,False,True,False,False,False,False,False,False,True,True,True,Average
+False,False,False,True,False,False,False,False,True,False,False,True,Average
+False,False,True,False,False,False,True,False,False,False,True,True,Average
+True,False,False,True,False,False,False,False,False,False,True,True,Average
+False,False,True,False,False,False,False,False,False,True,False,False,Average
+False,False,True,False,False,False,False,False,True,False,False,False,Average
+False,True,False,False,False,True,False,False,False,False,False,True,High Performer
+True,False,True,False,False,False,False,False,True,False,True,True,Average
+True,False,False,True,False,False,False,False,False,False,True,False,High Performer
+False,False,True,False,False,False,True,False,False,False,False,True,High Performer
+True,False,False,True,False,False,False,False,False,False,False,True,Average
+False,False,True,False,False,False,False,False,True,False,True,True,High Performer
+False,False,True,False,False,False,False,False,False,False,True,False,High Performer
+False,False,False,True,False,False,True,False,False,False,True,False,High Performer
+False,True,False,False,False,False,False,False,True,False,True,False,Average
+False,False,False,False,True,False,False,False,True,False,True,False,High Performer
+False,False,True,False,False,False,False,False,False,True,True,False,High Performer
+True,False,False,True,False,False,False,False,False,False,False,True,High Performer
+True,False,False,True,False,False,False,False,True,False,False,True,Average
+False,False,False,True,False,False,True,False,False,False,True,True,High Performer
+True,True,False,False,False,False,True,False,False,False,True,True,Average
+True,True,False,False,False,False,True,False,False,False,True,True,Average
+False,False,True,False,False,False,False,False,False,True,False,False,At Risk
+True,True,False,False,False,False,False,False,True,False,True,False,Average
+False,False,False,False,True,False,False,True,False,False,True,False,High Performer
+True,False,False,False,True,False,False,False,True,False,True,False,High Performer
+True,False,False,True,False,False,False,False,False,False,False,True,High Performer
+True,False,False,False,False,False,True,False,False,False,False,True,Average
+True,False,False,False,True,False,False,False,True,False,False,True,High Performer
+False,False,True,False,False,False,False,False,False,False,True,True,Average
+False,False,False,False,True,False,False,False,False,False,False,True,High Performer
+False,False,True,False,False,True,False,False,False,False,False,False,High Performer
+False,False,False,True,False,False,False,False,False,False,True,True,High Performer
+False,False,True,False,False,False,False,False,False,True,True,True,Average
+False,False,False,True,False,False,False,False,True,False,False,True,High Performer
+False,False,True,False,False,False,False,False,False,False,True,False,High Performer
+False,False,False,False,False,True,False,False,False,False,True,True,Average
+False,False,False,True,False,False,False,False,False,False,True,False,High Performer
+True,False,True,False,False,False,True,False,False,False,False,True,Average
+False,False,False,False,True,True,False,False,False,False,True,False,High Performer
+False,True,False,False,False,False,False,False,False,True,True,True,Average
+True,False,False,False,False,True,False,False,False,False,True,False,High Performer
+False,False,False,True,False,False,False,False,True,False,True,True,Average
+False,True,False,False,False,False,False,False,False,True,False,False,Average
+True,False,False,False,False,True,False,False,False,False,False,True,Average
+True,False,False,True,False,False,True,False,False,False,True,True,At Risk
+True,False,True,False,False,False,False,False,True,False,True,True,Average
+True,False,False,True,False,False,True,False,False,False,True,True,High Performer
+False,False,False,True,False,False,False,False,False,False,False,False,Average
+True,False,True,False,False,False,False,False,True,False,True,False,High Performer
+False,False,False,False,True,False,False,False,False,True,True,False,High Performer
+False,False,False,True,False,False,False,False,True,False,True,True,High Performer
+True,False,False,True,False,False,False,True,False,False,True,True,High Performer
+False,True,False,False,False,False,False,False,False,True,True,False,Average
+False,True,False,False,False,False,False,False,False,False,False,False,High Performer
+True,False,True,False,False,False,False,False,False,False,True,False,High Performer
+False,False,True,False,False,False,False,False,False,False,True,False,High Performer
+False,False,True,False,False,False,True,False,False,False,True,True,High Performer
+True,False,False,False,True,False,False,False,False,False,False,False,High Performer
+False,False,True,False,False,False,False,False,True,False,False,True,Average
+True,False,False,True,False,False,False,False,False,True,False,False,Average
+False,True,False,False,False,False,False,False,False,True,False,False,High Performer
+True,False,True,False,False,False,True,False,False,False,True,True,Average
+True,True,False,False,False,False,False,False,True,False,True,True,Average
+True,False,False,False,True,False,False,False,True,False,True,False,High Performer
+False,False,False,False,True,False,False,False,False,False,True,False,High Performer
+True,False,False,False,True,False,False,False,False,True,True,False,Average
+False,False,False,True,False,False,True,False,False,False,False,True,High Performer
+True,False,True,False,False,False,False,False,True,False,True,True,Average
+False,True,False,False,False,False,False,False,False,False,False,False,High Performer
+True,False,False,False,False,False,False,False,False,True,False,True,Average
+False,False,True,False,False,False,False,False,True,False,True,False,High Performer
+True,False,False,True,False,False,False,False,False,True,True,True,Average
+False,False,False,False,True,False,False,False,True,False,False,True,Average
+True,False,True,False,False,False,False,True,False,False,True,True,Average
+True,False,True,False,False,False,False,False,False,False,True,True,High Performer
+False,True,False,False,False,False,False,False,True,False,False,False,Average
+True,False,False,True,False,False,False,False,False,False,True,True,High Performer
+True,False,True,False,False,False,True,False,False,False,False,True,Average
+True,False,False,True,False,True,False,False,False,False,True,True,High Performer
+False,False,False,False,False,False,False,False,False,False,False,True,Average
+False,False,True,False,False,False,True,False,False,False,True,True,High Performer
+False,False,True,False,False,False,False,False,False,False,True,False,Average
+True,True,False,False,False,False,False,False,True,False,False,True,Average
+True,False,False,True,False,False,False,False,False,False,True,True,High Performer
+True,False,False,True,False,False,True,False,False,False,True,True,High Performer
+True,False,True,False,False,False,False,False,True,False,True,True,Average
+False,False,True,False,False,True,False,False,False,False,False,True,Average
+True,True,False,False,False,False,False,False,True,False,True,False,High Performer
+True,False,False,True,False,False,False,False,False,True,True,False,Average
+True,False,False,False,True,False,False,False,True,False,True,True,Average
+True,False,True,False,False,False,False,True,False,False,False,False,High Performer
+False,False,True,False,False,False,False,False,False,True,True,False,High Performer
+True,False,True,False,False,False,False,False,False,False,False,True,Average
+False,False,False,False,True,False,False,False,False,False,True,True,High Performer
+True,False,False,True,False,False,False,False,True,False,True,True,Average
+True,False,False,False,True,True,False,False,False,False,False,False,High Performer
+False,False,False,True,False,False,False,False,True,False,False,False,Average
+True,True,False,False,False,False,False,False,True,False,True,False,High Performer
+False,False,True,False,False,False,True,False,False,False,False,True,Average
+False,False,False,True,False,False,False,False,False,True,True,True,Average
+True,False,False,True,False,False,False,False,False,True,True,False,High Performer
+False,True,False,False,False,False,True,False,False,False,True,True,Average
+True,False,False,True,False,False,False,False,True,False,True,True,Average
+False,True,False,False,False,False,True,False,False,False,True,True,High Performer
+False,False,True,False,False,False,True,False,False,False,True,False,High Performer
+True,True,False,False,False,False,True,False,False,False,True,False,Average
+False,False,False,True,False,False,False,False,False,True,True,True,High Performer
+True,False,False,False,False,False,False,False,True,False,False,True,Average
+True,True,False,False,False,False,True,False,False,False,True,True,Average
+True,False,False,True,False,True,False,False,False,False,True,True,High Performer
+False,True,False,False,False,False,False,False,False,True,False,False,Average
+False,False,True,False,False,True,False,False,False,False,False,True,High Performer
+True,True,False,False,False,False,False,False,True,False,True,True,Average
+False,True,False,False,False,False,False,False,False,True,False,True,Average
+False,True,False,False,False,False,True,False,False,False,True,True,Average
+False,False,True,False,False,False,False,False,True,False,False,True,Average
+False,False,False,False,False,False,False,False,True,False,True,False,High Performer
+True,False,False,False,True,False,False,False,False,False,True,False,High Performer
+False,False,False,True,False,False,False,False,False,False,False,True,Average
+False,True,False,False,False,False,False,True,False,False,True,True,High Performer
+False,True,False,False,False,False,True,False,False,False,False,False,High Performer
+False,False,True,False,False,False,False,False,False,False,True,False,Average
+True,False,True,False,False,True,False,False,False,False,True,False,High Performer
+False,True,False,False,False,False,False,False,False,True,True,False,Average
+False,False,False,False,True,False,False,False,False,True,False,True,High Performer
+False,True,False,False,False,False,False,False,True,False,True,True,At Risk
+True,False,True,False,False,False,False,False,False,False,False,True,Average
+False,False,True,False,False,False,False,True,False,False,False,True,Average
+False,True,False,False,False,False,True,False,False,False,True,True,Average
+False,False,False,True,False,False,False,False,True,False,False,True,Average
+True,False,False,True,False,False,True,False,False,False,False,True,Average
+True,False,False,False,True,False,False,False,False,True,True,False,High Performer
+False,True,False,False,False,False,True,False,False,False,True,True,Average
+False,False,False,False,True,False,False,False,False,False,False,False,Average
+True,False,False,True,False,False,True,False,False,False,True,True,High Performer
+False,False,False,False,True,False,False,False,False,False,False,True,High Performer
+True,False,False,False,True,False,False,False,True,False,True,True,Average
+False,False,True,False,False,False,False,False,False,False,True,True,Average
+True,False,True,False,False,False,False,False,False,True,True,False,Average
+True,False,True,False,False,False,False,False,False,True,True,False,High Performer
+False,False,False,False,True,False,False,False,False,False,True,True,High Performer
+False,True,False,False,False,False,False,False,True,False,True,True,High Performer
+False,False,True,False,False,False,False,False,True,False,True,True,High Performer
+True,False,False,False,False,False,False,False,True,False,False,True,High Performer
+False,False,False,True,False,False,False,False,True,False,False,True,High Performer
+False,False,False,False,True,False,True,False,False,False,False,True,Average
+True,False,True,False,False,False,True,False,False,False,True,True,High Performer
+True,True,False,False,False,True,False,False,False,False,True,True,Average
+True,False,False,False,False,False,False,False,False,True,True,True,At Risk
+True,False,False,False,False,False,True,False,False,False,False,True,Average
+False,False,True,False,False,False,False,True,False,False,True,False,Average
+True,False,False,False,True,False,False,False,False,True,True,False,High Performer
+False,False,True,False,False,False,True,False,False,False,True,True,High Performer
+True,True,False,False,False,False,False,False,False,True,True,False,High Performer
+False,False,False,False,False,True,False,False,False,False,True,True,Average
+True,False,False,True,False,True,False,False,False,False,False,False,Average
+False,True,False,False,False,False,True,False,False,False,False,True,Average
+False,False,True,False,False,False,False,False,False,True,True,True,High Performer
+False,False,False,False,False,False,False,False,False,True,True,False,High Performer
+False,False,False,True,False,True,False,False,False,False,False,True,High Performer
+True,False,False,False,True,False,False,False,True,False,False,False,Average
+False,True,False,False,False,False,True,False,False,False,False,True,High Performer
+False,False,True,False,False,False,False,False,False,True,False,True,Average
+True,False,True,False,False,False,True,False,False,False,True,True,Average
+False,False,True,False,False,False,False,False,False,False,False,False,Average
+False,False,True,False,False,False,False,False,False,True,True,True,High Performer
+False,False,False,True,False,False,False,False,False,True,False,False,High Performer
+True,True,False,False,False,False,False,False,False,True,True,True,Average
+False,False,False,False,False,False,False,False,True,False,False,True,Average
+False,False,True,False,False,True,False,False,False,False,False,False,High Performer
+True,False,False,False,False,True,False,False,False,False,True,True,Average
+False,True,False,False,False,False,True,False,False,False,True,False,High Performer
+True,True,False,False,False,False,False,False,True,False,True,True,Average
+False,False,True,False,False,False,True,False,False,False,True,False,Average
+True,False,False,False,True,False,True,False,False,False,True,True,Average
+False,False,False,False,False,False,True,False,False,False,True,False,High Performer
+True,True,False,False,False,False,False,False,False,False,False,False,Average
+False,False,True,False,False,False,False,False,False,False,True,True,High Performer
+False,False,False,True,False,False,True,False,False,False,False,True,Average
+True,False,True,False,False,False,False,False,False,True,True,True,Average
+False,True,False,False,False,False,True,False,False,False,False,False,At Risk
+True,True,False,False,False,False,False,False,True,False,False,False,High Performer
+False,False,False,True,False,False,False,False,False,True,False,False,Average
+True,False,False,False,True,False,False,True,False,False,True,True,High Performer
+True,False,True,False,False,False,False,True,False,False,True,False,High Performer
+True,False,False,True,False,False,True,False,False,False,True,True,Average
+False,False,True,False,False,False,True,False,False,False,True,True,Average
+True,False,False,True,False,False,False,False,False,False,True,True,High Performer
+True,False,True,False,False,False,False,True,False,False,True,True,Average
+False,False,False,False,False,False,True,False,False,False,True,True,Average
+False,False,False,False,True,False,False,False,True,False,True,True,High Performer
+True,False,False,False,True,False,False,False,False,True,True,True,High Performer
+True,False,True,False,False,False,False,False,False,True,True,True,Average
+False,True,False,False,False,True,False,False,False,False,True,True,High Performer
+True,True,False,False,False,False,False,False,True,False,False,True,Average
+False,False,True,False,False,True,False,False,False,False,True,True,High Performer
+True,True,False,False,False,False,True,False,False,False,True,False,Average
+True,False,True,False,False,False,False,False,False,False,False,True,High Performer
+False,False,True,False,False,False,False,False,False,False,True,True,Average
+False,False,False,False,True,False,False,True,False,False,False,True,High Performer
+True,False,False,True,False,True,False,False,False,False,False,False,At Risk
+False,False,True,False,False,False,False,False,True,False,True,False,High Performer
+True,False,True,False,False,False,False,False,False,False,True,True,High Performer
+True,False,False,True,False,False,False,False,True,False,True,False,High Performer
+True,False,True,False,False,False,True,False,False,False,False,True,Average
+True,True,False,False,False,False,False,False,False,False,True,True,Average
+True,False,False,False,True,False,False,False,False,False,False,False,High Performer
+True,False,True,False,False,False,False,False,False,False,False,True,Average
+True,True,False,False,False,False,True,False,False,False,True,True,Average
+False,False,True,False,False,False,False,False,True,False,True,False,High Performer
+True,True,False,False,False,False,False,False,False,False,True,False,High Performer
+True,False,False,False,True,False,False,False,False,False,False,True,High Performer
+False,False,True,False,False,True,False,False,False,False,False,True,Average
+True,False,True,False,False,False,False,False,True,False,False,True,High Performer
+True,False,False,True,False,False,False,False,True,False,True,True,High Performer
+True,False,True,False,False,False,False,False,False,True,True,True,Average
+False,False,False,True,False,False,False,False,False,True,True,True,High Performer
+False,False,False,True,False,False,False,False,False,False,True,True,High Performer
+True,False,True,False,False,True,False,False,False,False,True,False,Average
+False,False,False,False,True,True,False,False,False,False,True,False,High Performer
+False,True,False,False,False,False,True,False,False,False,False,True,Average
+True,False,False,True,False,True,False,False,False,False,False,True,Average
+False,False,False,False,True,False,False,False,False,False,True,True,Average
+False,False,True,False,False,False,False,False,False,False,True,False,High Performer
+False,False,False,False,True,False,False,False,False,False,True,False,High Performer
+True,False,True,False,False,False,True,False,False,False,False,True,Average
+False,False,False,True,False,False,False,False,True,False,False,True,Average
+True,False,False,True,False,False,True,False,False,False,False,True,Average
+False,False,False,False,True,False,False,False,True,False,True,False,High Performer
+False,False,False,False,True,False,False,False,False,False,True,True,High Performer
+False,False,False,False,False,False,False,True,False,False,False,True,Average
+True,False,False,True,False,False,False,False,False,True,True,False,High Performer
+False,False,False,False,True,False,False,False,False,False,True,True,Average
+False,False,False,False,True,False,False,False,False,True,False,True,At Risk
+True,True,False,False,False,False,True,False,False,False,False,True,At Risk
+False,True,False,False,False,False,False,False,False,True,False,False,High Performer
+True,False,False,True,False,False,False,False,False,False,True,False,Average
+False,False,False,True,False,False,False,False,False,True,True,False,High Performer
+True,False,False,True,False,False,False,True,False,False,True,True,High Performer
+False,False,True,False,False,False,False,True,False,False,True,True,High Performer
+False,False,False,False,False,False,True,False,False,False,False,False,Average
+False,False,False,True,False,True,False,False,False,False,False,False,High Performer
+False,False,False,True,False,False,False,False,False,True,False,True,High Performer
+True,False,False,True,False,False,False,False,True,False,True,True,High Performer
+True,True,False,False,False,False,True,False,False,False,True,True,Average
+False,False,False,True,False,False,False,False,True,False,True,False,High Performer
+False,False,True,False,False,True,False,False,False,False,False,True,High Performer
+True,False,False,False,True,True,False,False,False,False,True,False,Average
+True,False,False,True,False,True,False,False,False,False,False,True,Average
+False,False,False,False,False,False,False,False,True,False,True,True,High Performer
+False,False,True,False,False,True,False,False,False,False,True,False,Average
+False,False,True,False,False,True,False,False,False,False,False,False,Average
+False,True,False,False,False,False,False,False,False,False,False,True,Average
+False,False,False,False,True,False,False,False,True,False,True,True,Average
+True,False,False,False,True,True,False,False,False,False,True,False,High Performer
+False,False,True,False,False,False,True,False,False,False,True,True,Average
+False,False,True,False,False,False,False,False,False,False,True,False,High Performer
+True,True,False,False,False,False,False,False,True,False,True,False,High Performer
+True,False,False,True,False,False,True,False,False,False,False,True,Average
+False,False,True,False,False,False,True,False,False,False,False,True,Average
+True,False,False,True,False,False,True,False,False,False,True,True,Average
+False,True,False,False,False,False,False,False,False,False,False,True,Average
+True,False,False,True,False,False,True,False,False,False,False,True,High Performer
+True,False,False,False,True,False,False,False,False,True,True,False,Average
+True,False,False,False,True,False,False,False,False,False,False,True,Average
+False,False,False,True,False,False,True,False,False,False,False,False,Average
+True,False,False,False,True,False,False,False,False,False,False,False,Average
+False,False,True,False,False,False,False,False,False,True,False,True,Average
+True,False,True,False,False,False,False,False,True,False,False,False,High Performer
+True,False,False,True,False,False,False,False,True,False,False,True,Average
+True,False,False,True,False,False,False,False,False,False,False,False,Average
+True,False,True,False,False,True,False,False,False,False,False,False,High Performer
+True,False,True,False,False,False,False,False,False,False,True,False,High Performer
+True,False,False,True,False,False,False,False,True,False,False,True,Average
+True,False,False,False,False,False,False,False,False,False,True,True,Average
+False,False,False,False,True,False,True,False,False,False,False,True,Average
+True,False,False,True,False,False,False,False,True,False,True,False,High Performer
+True,False,False,True,False,False,False,False,False,True,True,False,High Performer
+True,False,True,False,False,False,False,True,False,False,False,False,High Performer
+False,False,False,True,False,False,False,True,False,False,True,True,High Performer
+True,False,True,False,False,False,True,False,False,False,True,True,High Performer
+True,False,False,False,False,False,False,False,False,True,False,False,Average
+False,True,False,False,False,False,True,False,False,False,True,True,Average
+False,False,True,False,False,False,False,False,False,False,True,True,Average
+True,True,False,False,False,False,True,False,False,False,True,True,High Performer
+False,False,False,True,False,False,False,False,True,False,False,True,Average
+True,True,False,False,False,False,False,False,False,True,False,False,Average
+False,False,False,False,True,False,True,False,False,False,False,False,Average
+True,False,False,False,True,False,True,False,False,False,True,True,High Performer
+False,False,False,True,False,False,False,False,True,False,True,False,High Performer
+False,False,False,False,True,False,False,False,False,True,False,True,High Performer
+True,False,True,False,False,False,True,False,False,False,True,False,Average
+False,False,True,False,False,False,False,False,True,False,True,True,Average
+True,False,False,False,True,False,False,False,False,False,True,True,Average
+True,False,True,False,False,False,False,False,True,False,True,True,High Performer
+False,False,False,True,False,False,False,True,False,False,True,True,High Performer
+False,False,False,True,False,False,True,False,False,False,True,True,Average
+True,False,True,False,False,False,True,False,False,False,True,True,High Performer
+False,False,False,False,False,False,False,False,True,False,True,True,Average
+False,False,False,True,False,False,False,False,False,True,False,True,Average
+False,False,False,False,True,False,False,False,False,False,True,True,High Performer
+False,False,True,False,False,False,False,False,False,True,False,False,High Performer
+True,False,False,True,False,False,False,False,True,False,True,True,Average
+False,False,False,True,False,False,False,False,True,False,True,True,Average
+True,False,False,False,False,False,False,False,False,True,True,False,Average
+True,False,True,False,False,False,False,False,True,False,True,True,Average
+False,False,False,False,True,False,False,False,False,False,True,True,High Performer
+False,True,False,False,False,True,False,False,False,False,True,True,High Performer
+False,False,False,True,False,True,False,False,False,False,True,True,High Performer
+True,False,True,False,False,False,False,False,False,True,True,False,High Performer
+False,False,False,False,False,False,True,False,False,False,False,False,Average
+False,False,False,True,False,False,False,False,True,False,False,True,Average
+False,False,False,False,False,False,False,False,True,False,True,True,Average
+False,False,True,False,False,False,False,False,True,False,True,False,High Performer
+True,True,False,False,False,False,False,False,True,False,False,False,Average
+True,False,True,False,False,False,False,False,False,False,True,True,Average
+True,False,False,True,False,False,True,False,False,False,True,False,Average
+False,False,True,False,False,False,False,False,False,False,True,True,High Performer
+False,True,False,False,False,False,True,False,False,False,False,True,At Risk
+True,False,False,True,False,False,False,False,False,True,True,True,High Performer
+True,True,False,False,False,False,False,False,False,True,True,False,High Performer
+False,False,False,False,False,False,False,False,True,False,True,False,High Performer
+False,False,True,False,False,False,False,False,False,True,True,True,High Performer
+True,False,False,False,False,False,True,False,False,False,True,True,Average
+False,False,True,False,False,False,False,False,False,False,True,True,Average
+True,False,False,False,True,False,False,False,False,True,True,False,High Performer
+False,False,False,False,False,False,False,False,False,True,False,True,Average
+False,False,False,True,False,False,False,False,True,False,False,False,High Performer
+True,False,False,False,True,False,True,False,False,False,False,False,High Performer
+False,True,False,False,False,False,False,False,False,True,True,False,High Performer
+False,False,False,True,False,False,False,False,False,False,False,True,Average
+False,False,False,True,False,True,False,False,False,False,False,True,Average
+True,False,False,False,False,False,True,False,False,False,True,True,Average
+False,False,False,False,True,False,False,True,False,False,True,False,High Performer
+True,False,True,False,False,False,True,False,False,False,False,True,Average
+False,False,True,False,False,False,True,False,False,False,False,False,Average
+False,False,False,True,False,False,False,False,True,False,True,False,High Performer
+False,False,False,True,False,False,False,False,True,False,False,True,High Performer
