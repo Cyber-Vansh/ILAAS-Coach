@@ -13,99 +13,123 @@ import json
 
 # Set page config
 st.set_page_config(
-    page_title="ILA Coach Dashboard",
-    page_icon="🎓",
+    page_title="ILA COACH",
+    page_icon="STR",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for modern styling
+# Custom CSS for Swiss Grid Styling
 def load_css():
     st.markdown("""
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+        
+        * {
+            font-family: 'Inter', -apple-system, sans-serif !important;
+        }
+        
         .main-header {
-            font-size: 2.5rem;
-            font-weight: bold;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-align: center;
-            margin-bottom: 2rem;
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            color: #000000;
+            text-align: left;
+            margin-bottom: 3rem;
+            line-height: 1;
+            text-transform: uppercase;
         }
         
         .metric-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            color: white;
+            background: #ffffff;
+            padding: 2rem;
+            border: 2px solid #000000;
+            color: #000000;
             margin: 0.5rem 0;
+            border-radius: 0px;
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        
+        .metric-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666666;
         }
         
         .sidebar-section {
-            background: #f8f9fa;
+            background: #ffffff;
             padding: 1rem;
-            border-radius: 10px;
+            border: 1px solid #000000;
             margin: 1rem 0;
+            border-radius: 0px;
         }
         
         .stButton > button {
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: #000000;
+            color: #ffffff;
             border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0px;
             font-weight: 600;
-            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
         }
         
         .stButton > button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            background: #E6192E;
+            color: #ffffff;
         }
         
         .plot-container {
             background: white;
             padding: 1rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border: 1px solid #eeeeee;
             margin: 1rem 0;
         }
         
         .status-indicator {
             display: inline-block;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
+            width: 16px;
+            height: 4px;
             margin-right: 8px;
         }
         
-        .status-high { background-color: #ff4757; }
-        .status-medium { background-color: #ffa502; }
-        .status-low { background-color: #26de81; }
+        .status-high { background-color: #E6192E; }
+        .status-medium { background-color: #000000; }
+        .status-low { background-color: #cccccc; }
         
         .info-box {
-            background: #e3f2fd;
-            border-left: 4px solid #2196f3;
-            padding: 1rem;
+            border: 2px solid #000000;
+            padding: 1.5rem;
             margin: 1rem 0;
-            border-radius: 5px;
         }
         
         .warning-box {
-            background: #fff3e0;
-            border-left: 4px solid #ff9800;
-            padding: 1rem;
+            background: #E6192E;
+            color: white;
+            padding: 1.5rem;
             margin: 1rem 0;
-            border-radius: 5px;
         }
         
         .success-box {
-            background: #e8f5e8;
-            border-left: 4px solid #4caf50;
-            padding: 1rem;
+            border: 2px solid #000000;
+            padding: 1.5rem;
             margin: 1rem 0;
-            border-radius: 5px;
+        }
+        
+        /* Layout Grid */
+        .swiss-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1rem;
         }
     </style>
     """, unsafe_allow_html=True)
@@ -180,15 +204,18 @@ def load_scaler():
 
 def sidebar():
     st.sidebar.markdown('<div class="sidebar-section">', unsafe_allow_html=True)
-    st.sidebar.title("🎓 ILA Coach")
-    st.sidebar.markdown("Intelligent Learning Analytics Coach")
+    st.sidebar.title("ILA COACH")
+    st.sidebar.markdown("INTELLIGENT LEARNING ANALYTICS")
     st.sidebar.markdown('</div>', unsafe_allow_html=True)
     
     page = st.sidebar.selectbox(
-        "Navigate to:",
-        ["📊 Dashboard", "📈 Data Visualization", "🎯 Risk Analysis", "⚙️ Settings"],
+        "NAVIGATION",
+        ["» DASHBOARD", "» DATA VISUALIZATION", "» RISK ANALYSIS", "» SETTINGS"],
         index=0
     )
+    
+    # Strip the arrow for logic
+    page = page.replace("» ", "")
     
     st.sidebar.markdown('<div class="sidebar-section">', unsafe_allow_html=True)
     st.sidebar.subheader("Quick Stats")
@@ -206,80 +233,62 @@ def sidebar():
     return page
 
 def dashboard_page(df, model, scaler):
-    st.markdown('<h1 class="main-header">📊 Dashboard</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header">» DASHBOARD</h1>', unsafe_allow_html=True)
     
     col1, col2, col3, col4 = st.columns(4)
     
     with col1:
-        avg_gpa = df['gpa'].mean()
-        st.metric("Average GPA", f"{avg_gpa:.2f}", delta="↑ 0.1")
+        avg_gpa = df['gpa'].mean() if 'gpa' in df.columns else df['G3'].mean()
+        st.markdown(f'<div class="metric-card"><div class="metric-label">AVG GRADE</div><div class="metric-value">{avg_gpa:.2f}</div></div>', unsafe_allow_html=True)
     
     with col2:
-        avg_attendance = df['attendance_rate'].mean()
-        st.metric("Avg Attendance", f"{avg_attendance:.1f}%", delta="↑ 2.3%")
+        avg_attendance = df['attendance_rate'].mean() if 'attendance_rate' in df.columns else df['absences'].mean()
+        label = "AVG ATTENDANCE" if 'attendance_rate' in df.columns else "AVG ABSENCES"
+        st.markdown(f'<div class="metric-card"><div class="metric-label">{label}</div><div class="metric-value">{avg_attendance:.1f}</div></div>', unsafe_allow_html=True)
     
     with col3:
         high_risk_pct = (df['risk_level'] == 'High').sum() / len(df) * 100
-        st.metric("High Risk %", f"{high_risk_pct:.1f}%", delta="↓ 1.2%")
+        st.markdown(f'<div class="metric-card"><div class="metric-label">HIGH RISK %</div><div class="metric-value">{high_risk_pct:.1f}%</div></div>', unsafe_allow_html=True)
     
     with col4:
-        completion_rate = df['assignment_completion'].mean()
-        st.metric("Completion Rate", f"{completion_rate:.1f}%", delta="↑ 3.5%")
+        completion_rate = df['assignment_completion'].mean() if 'assignment_completion' in df.columns else 0
+        st.markdown(f'<div class="metric-card"><div class="metric-label">COMPLETION RATE</div><div class="metric-value">{completion_rate:.1f}%</div></div>', unsafe_allow_html=True)
     
+    st.markdown("<br>", unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     
     with col1:
-        st.subheader("📈 Risk Level Distribution")
+        st.markdown('<div class="metric-label">RISK DISTRIBUTION</div>', unsafe_allow_html=True)
         risk_counts = df['risk_level'].value_counts()
         fig = px.pie(
             values=risk_counts.values,
             names=risk_counts.index,
-            color_discrete_map={'Low': '#26de81', 'Medium': '#ffa502', 'High': '#ff4757'}
+            color_discrete_sequence=['#000000', '#E6192E', '#cccccc']
         )
-        fig.update_layout(height=300)
+        fig.update_layout(height=300, margin=dict(l=0, r=0, t=0, b=0))
         st.plotly_chart(fig, use_container_width=True)
     
     with col2:
-        st.subheader("📊 GPA Distribution")
-        fig = px.histogram(df, x='gpa', nbins=20, color='risk_level',
-                          color_discrete_map={'Low': '#26de81', 'Medium': '#ffa502', 'High': '#ff4757'})
-        fig.update_layout(height=300)
+        st.markdown('<div class="metric-label">GRADE DISTRIBUTION</div>', unsafe_allow_html=True)
+        plot_col = 'gpa' if 'gpa' in df.columns else 'G3' if 'G3' in df.columns else 'G2'
+        fig = px.histogram(df, x=plot_col, nbins=20, color_discrete_sequence=['#000000'])
+        fig.update_layout(height=300, margin=dict(l=0, r=0, t=0, b=0))
         st.plotly_chart(fig, use_container_width=True)
     
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        st.subheader("📚 Attendance vs GPA")
-        fig = px.scatter(df, x='attendance_rate', y='gpa', color='risk_level',
-                        size='study_hours_per_week', hover_data=['name'],
-                        color_discrete_map={'Low': '#26de81', 'Medium': '#ffa502', 'High': '#ff4757'})
-        fig.update_layout(height=300)
-        st.plotly_chart(fig, use_container_width=True)
-    
-    with col2:
-        st.subheader("🎓 Program Distribution")
-        program_counts = df['program'].value_counts()
-        fig = px.bar(x=program_counts.index, y=program_counts.values,
-                    labels={'x': 'Program', 'y': 'Number of Students'})
-        fig.update_layout(height=300)
-        st.plotly_chart(fig, use_container_width=True)
-    
-    st.subheader("🚨 Recent Alerts")
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown('<div class="metric-label">RECENT ALERTS</div>', unsafe_allow_html=True)
     high_risk_students = df[df['risk_level'] == 'High'].sort_values('risk_score', ascending=False).head(5)
     
     for _, student in high_risk_students.iterrows():
-        risk_color = '#ff4757'
+        y_val = student['gpa'] if 'gpa' in student else 0
         st.markdown(f"""
         <div class="warning-box">
-            <span class="status-indicator status-high"></span>
-            <strong>{student['name']}</strong> - Risk Score: {student['risk_score']:.2f}<br>
-            GPA: {student['gpa']:.2f} | Attendance: {student['attendance_rate']:.1f}% | 
-            Program: {student['program']}
+            <strong>{student['name'].upper()}</strong> | RISK: {student['risk_score']:.2f} | GRADE: {y_val:.2f}
         </div>
         """, unsafe_allow_html=True)
 
 def data_viz_page(df):
-    st.markdown('<h1 class="main-header">📈 Data Visualization</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header">» VISUALIZATION</h1>', unsafe_allow_html=True)
     
     col1, col2, col3 = st.columns(3)
     
@@ -339,52 +348,48 @@ def data_viz_page(df):
         st.plotly_chart(fig, use_container_width=True)
 
 def risk_analysis_page(df, model, scaler):
-    st.markdown('<h1 class="main-header">🎯 Risk Analysis</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header">» RISK ANALYSIS</h1>', unsafe_allow_html=True)
     
-    st.subheader("👤 Individual Student Analysis")
+    st.markdown('<div class="metric-label">STUDENT SELECTION</div>', unsafe_allow_html=True)
+    selected_student = st.selectbox("", df['name'].unique())
+    student_data = df[df['name'] == selected_student].iloc[0]
     
-    col1, col2 = st.columns(2)
+    col1, col2 = st.columns([1, 1])
     
     with col1:
-        selected_student = st.selectbox("Select Student", df['name'].unique())
-        student_data = df[df['name'] == selected_student].iloc[0]
-        
         st.markdown(f"""
         <div class="info-box">
-            <h4>Student Information</h4>
-            <p><strong>ID:</strong> {student_data['student_id']}</p>
-            <p><strong>Program:</strong> {student_data['program']}</p>
-            <p><strong>Year:</strong> {student_data['year']}</p>
-            <p><strong>Age:</strong> {student_data['age']}</p>
+            <div class="metric-label">DATA PROFILE</div>
+            <p>ID: {student_data['student_id']}</p>
+            <p>PROGRAM: {student_data['program'].upper()}</p>
+            <p>YEAR: {student_data['year'].upper()}</p>
+            <p>AGE: {student_data['age']}</p>
         </div>
         """, unsafe_allow_html=True)
     
     with col2:
-        # Risk level indicator
         risk_level = student_data['risk_level']
-        risk_color = {'Low': '#26de81', 'Medium': '#ffa502', 'High': '#ff4757'}[risk_level]
-        
         st.markdown(f"""
         <div class="metric-card">
-            <h3>Risk Assessment</h3>
-            <h2 style="color: {risk_color};">{risk_level} Risk</h2>
-            <p>Risk Score: {student_data['risk_score']:.3f}</p>
+            <div class="metric-label">ASSESSMENT</div>
+            <div class="metric-value">{risk_level.upper()} RISK</div>
+            <p>SCORE: {student_data['risk_score']:.3f}</p>
         </div>
         """, unsafe_allow_html=True)
     
     col1, col2, col3, col4 = st.columns(4)
     
     with col1:
-        st.metric("GPA", f"{student_data['gpa']:.2f}")
+        st.markdown(f'<div class="metric-card"><div class="metric-label">GPA</div><div class="metric-value">{student_data["gpa"]:.2f}</div></div>', unsafe_allow_html=True)
     
     with col2:
-        st.metric("Attendance", f"{student_data['attendance_rate']:.1f}%")
+        st.markdown(f'<div class="metric-card"><div class="metric-label">ATTENDANCE</div><div class="metric-value">{student_data["attendance_rate"]:.1f}%</div></div>', unsafe_allow_html=True)
     
     with col3:
-        st.metric("Assignment Completion", f"{student_data['assignment_completion']:.1f}%")
+        st.markdown(f'<div class="metric-card"><div class="metric-label">COMPLETION</div><div class="metric-value">{student_data["assignment_completion"]:.1f}%</div></div>', unsafe_allow_html=True)
     
     with col4:
-        st.metric("Study Hours/Week", student_data['study_hours_per_week'])
+        st.markdown(f'<div class="metric-card"><div class="metric-label">STUDY HOURS</div><div class="metric-value">{student_data["study_hours_per_week"]}</div></div>', unsafe_allow_html=True)
     
     st.subheader("🔮 Predictive Analysis")
     
@@ -531,13 +536,13 @@ def main():
     
     page = sidebar()
     
-    if page == "📊 Dashboard":
+    if page == "DASHBOARD":
         dashboard_page(df, model, scaler)
-    elif page == "📈 Data Visualization":
+    elif page == "DATA VISUALIZATION":
         data_viz_page(df)
-    elif page == "🎯 Risk Analysis":
+    elif page == "RISK ANALYSIS":
         risk_analysis_page(df, model, scaler)
-    elif page == "⚙️ Settings":
+    elif page == "SETTINGS":
         settings_page()
     
     st.markdown("---")
