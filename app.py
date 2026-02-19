@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import seaborn as sns
 import matplotlib.pyplot as plt
-import pickle
+import joblib
 import os
 from datetime import datetime, timedelta
 import json
@@ -164,8 +164,7 @@ def load_model():
     try:
         model_path = 'src/student_risk_model.pkl'
         if os.path.exists(model_path):
-            with open(model_path, 'rb') as f:
-                model = pickle.load(f)
+            model = joblib.load(model_path)
             return model
     except Exception as e:
         st.warning(f"Could not load model: {e}")
@@ -186,8 +185,7 @@ def load_scaler():
     try:
         scaler_path = 'src/scaler.pkl'
         if os.path.exists(scaler_path):
-            with open(scaler_path, 'rb') as f:
-                scaler = pickle.load(f)
+            scaler = joblib.load(scaler_path)
             return scaler
     except Exception as e:
         st.warning(f"Could not load scaler: {e}")
