@@ -2,554 +2,409 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
-import seaborn as sns
-import matplotlib.pyplot as plt
 import joblib
-import os
-from datetime import datetime, timedelta
-import json
+from src.ml_pipeline import recommendation_for_label
 
-# Set page config
+
 st.set_page_config(
-    page_title="ILA COACH",
+    page_title="ILAAS-COACH",
     page_icon="STR",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="expanded",
 )
 
-# Custom CSS for Swiss Grid Styling
+
 def load_css():
-    st.markdown("""
+    st.markdown(
+        """
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
-        
+
+        :root {
+            --bg-primary: #050816;
+            --bg-elevated: rgba(11, 15, 25, 0.96);
+            --bg-elevated-soft: rgba(13, 19, 33, 0.9);
+            --grid-line: rgba(148, 163, 184, 0.18);
+            --accent-cyan: #22d3ee;
+            --accent-pink: #f472b6;
+            --accent-purple: #a855f7;
+            --accent-red: #fb7185;
+            --text-main: #e5e7eb;
+            --text-muted: #9ca3af;
+        }
+
         * {
             font-family: 'Inter', -apple-system, sans-serif !important;
         }
-        
+
+        body {
+            background:
+                linear-gradient(135deg, rgba(34,211,238,0.06), transparent 45%),
+                linear-gradient(225deg, rgba(244,114,182,0.10), transparent 40%),
+                radial-gradient(circle at top left, rgba(56,189,248,0.18), transparent 55%),
+                radial-gradient(circle at bottom right, rgba(244,114,182,0.22), transparent 60%),
+                var(--bg-primary) !important;
+            color: var(--text-main);
+        }
+
         .main-header {
             font-size: 4rem;
             font-weight: 800;
             letter-spacing: -2px;
-            color: #000000;
+            color: var(--text-main);
             text-align: left;
             margin-bottom: 3rem;
             line-height: 1;
             text-transform: uppercase;
+            position: relative;
         }
-        
+
+        .main-header::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -12px;
+            width: 140px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple), var(--accent-pink));
+            box-shadow: 0 0 20px rgba(244,114,182,0.6);
+        }
+
         .metric-card {
-            background: #ffffff;
+            background: linear-gradient(135deg, rgba(15,23,42,0.96), rgba(24,24,27,0.92));
             padding: 2rem;
-            border: 2px solid #000000;
-            color: #000000;
+            border: 1px solid var(--grid-line);
+            border-top: 3px solid var(--accent-purple);
+            color: var(--text-main);
             margin: 0.5rem 0;
             border-radius: 0px;
+            box-shadow: 0 22px 36px rgba(15,23,42,0.65);
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .metric-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: 0.22;
+            background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 26px 26px;
+            mix-blend-mode: soft-light;
+            pointer-events: none;
+        }
+
         .metric-value {
             font-size: 2.5rem;
             font-weight: 800;
             line-height: 1;
         }
-        
+
         .metric-label {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #666666;
+            letter-spacing: 0.16em;
+            color: var(--text-muted);
         }
-        
+
         .sidebar-section {
-            background: #ffffff;
-            padding: 1rem;
-            border: 1px solid #000000;
-            margin: 1rem 0;
-            border-radius: 0px;
-        }
-        
-        .stButton > button {
-            background: #000000;
-            color: #ffffff;
+            background: transparent;
+            padding: 0.5rem 0;
             border: none;
+            border-top: 1px solid rgba(148,163,184,0.35);
+            margin: 0.75rem 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .stButton > button {
+            background: radial-gradient(circle at top left, var(--accent-cyan), var(--accent-purple));
+            color: #0b1020;
+            border: 1px solid rgba(148,163,184,0.4);
             padding: 0.75rem 1.5rem;
             border-radius: 0px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.16em;
             width: 100%;
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .stButton > button::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 10% 0%, rgba(255,255,255,0.38), transparent 55%);
+            opacity: 0;
+            transition: opacity 160ms ease-out;
+        }
+
+        .stButton > button:hover::after {
+            opacity: 1;
+        }
+
         .stButton > button:hover {
-            background: #E6192E;
-            color: #ffffff;
+            box-shadow: 0 0 24px rgba(34,211,238,0.75);
         }
-        
+
         .plot-container {
-            background: white;
-            padding: 1rem;
-            border: 1px solid #eeeeee;
+            background: var(--bg-elevated);
+            padding: 1.2rem 1.4rem;
+            border: 1px solid var(--grid-line);
             margin: 1rem 0;
+            position: relative;
         }
-        
+
         .status-indicator {
             display: inline-block;
-            width: 16px;
+            width: 18px;
             height: 4px;
             margin-right: 8px;
+            box-shadow: 0 0 16px rgba(248,250,252,0.95);
         }
-        
-        .status-high { background-color: #E6192E; }
-        .status-medium { background-color: #000000; }
-        .status-low { background-color: #cccccc; }
-        
+
+        .status-high { background: linear-gradient(90deg, var(--accent-red), #fecaca); }
+        .status-medium { background: linear-gradient(90deg, var(--accent-purple), #e5deff); }
+        .status-low { background: linear-gradient(90deg, #4b5563, #9ca3af); }
+
         .info-box {
-            border: 2px solid #000000;
+            border: 1px solid var(--grid-line);
             padding: 1.5rem;
             margin: 1rem 0;
+            background: linear-gradient(135deg, rgba(15,23,42,0.98), rgba(15,23,42,0.88));
         }
-        
+
         .warning-box {
-            background: #E6192E;
-            color: white;
+            background: radial-gradient(circle at top left, rgba(248,113,113,0.28), rgba(127,29,29,0.95));
+            color: #fee2e2;
             padding: 1.5rem;
             margin: 1rem 0;
+            border: 1px solid rgba(248,113,113,0.65);
+            box-shadow: 0 0 22px rgba(248,113,113,0.75);
         }
-        
+
         .success-box {
-            border: 2px solid #000000;
+            border: 1px solid var(--grid-line);
             padding: 1.5rem;
             margin: 1rem 0;
+            background: linear-gradient(135deg, rgba(5,150,105,0.18), rgba(15,23,42,0.94));
         }
-        
+
         /* Layout Grid */
         .swiss-grid {
             display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 1rem;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 1.1rem;
+        }
+
+        .swiss-cell-span-3 { grid-column: span 3 / span 3; }
+        .swiss-cell-span-4 { grid-column: span 4 / span 4; }
+        .swiss-cell-span-6 { grid-column: span 6 / span 6; }
+        .swiss-cell-span-12 { grid-column: span 12 / span 12; }
+
+        @media (max-width: 900px) {
+            .main-header {
+                font-size: 2.5rem;
+            }
+            .swiss-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+            .swiss-cell-span-3,
+            .swiss-cell-span-4,
+            .swiss-cell-span-6,
+            .swiss-cell-span-12 {
+                grid-column: 1 / -1;
+            }
         }
     </style>
-    """, unsafe_allow_html=True)
+    """,
+        unsafe_allow_html=True,
+    )
 
-# Load data
-def load_sample_data():
-    np.random.seed(42)
-    n_students = 1000
-    
-    data = {
-        'student_id': [f'STU_{i:04d}' for i in range(1, n_students + 1)],
-        'name': [f'Student {i}' for i in range(1, n_students + 1)],
-        'age': np.random.randint(18, 25, n_students),
-        'gpa': np.random.uniform(2.0, 4.0, n_students),
-        'attendance_rate': np.random.uniform(60, 100, n_students),
-        'assignment_completion': np.random.uniform(50, 100, n_students),
-        'study_hours_per_week': np.random.randint(1, 40, n_students),
-        'extracurricular_activities': np.random.randint(0, 5, n_students),
-        'risk_score': np.random.uniform(0, 1, n_students),
-        'last_login': pd.date_range(start='2024-01-01', end='2024-12-31', periods=n_students),
-        'program': np.random.choice(['Computer Science', 'Engineering', 'Business', 'Arts', 'Science'], n_students),
-        'year': np.random.choice(['Freshman', 'Sophomore', 'Junior', 'Senior'], n_students)
-    }
-    
-    df = pd.DataFrame(data)
-    df['risk_level'] = pd.cut(df['risk_score'], bins=[0, 0.3, 0.7, 1], labels=['Low', 'Medium', 'High'])
-    
-    return df
 
-# Load ML model
-def load_model():
-    try:
-        model_path = 'src/student_risk_model.pkl'
-        if os.path.exists(model_path):
-            model = joblib.load(model_path)
-            return model
-    except Exception as e:
-        st.warning(f"Could not load model: {e}")
-        from sklearn.ensemble import RandomForestClassifier
-        from sklearn.datasets import make_classification
-        
-        X, y = make_classification(n_samples=1000, n_features=5, n_classes=2, random_state=42)
-        
-        dummy_model = RandomForestClassifier(n_estimators=10, random_state=42)
-        dummy_model.fit(X, y)
-        
-        st.info("Using demo model for demonstration purposes")
-        return dummy_model
-    return None
+@st.cache_resource
+def load_artifacts():
+    df = pd.read_csv("data-cleaned/processed_student_mat.csv")
+    X = df.drop("risk_level", axis=1)
+    X_dummies = pd.get_dummies(X)
+    model = joblib.load("src/student_risk_model.pkl")
+    scaler = joblib.load("src/scaler.pkl")
+    return X, X_dummies.columns.tolist(), model, scaler
 
-# Load scaler
-def load_scaler():
-    try:
-        scaler_path = 'src/scaler.pkl'
-        if os.path.exists(scaler_path):
-            scaler = joblib.load(scaler_path)
-            return scaler
-    except Exception as e:
-        st.warning(f"Could not load scaler: {e}")
-        from sklearn.preprocessing import StandardScaler
-        import numpy as np
-        
-        dummy_scaler = StandardScaler()
-        sample_data = np.random.rand(100, 5)
-        dummy_scaler.fit(sample_data)
-        
-        st.info("Using demo scaler for demonstration purposes")
-        return dummy_scaler
-    return None
 
 def sidebar():
     st.sidebar.markdown('<div class="sidebar-section">', unsafe_allow_html=True)
-    st.sidebar.title("ILA COACH")
-    st.sidebar.markdown("INTELLIGENT LEARNING ANALYTICS")
-    st.sidebar.markdown('</div>', unsafe_allow_html=True)
-    
-    page = st.sidebar.selectbox(
-        "NAVIGATION",
-        ["» DASHBOARD", "» DATA VISUALIZATION", "» RISK ANALYSIS", "» SETTINGS"],
-        index=0
-    )
-    
-    # Strip the arrow for logic
-    page = page.replace("» ", "")
-    
+    st.sidebar.title("ILAAS COACH")
+    st.sidebar.markdown("Individual Student Risk Analysis")
+    st.sidebar.markdown("</div>", unsafe_allow_html=True)
     st.sidebar.markdown('<div class="sidebar-section">', unsafe_allow_html=True)
-    st.sidebar.subheader("Quick Stats")
-    df = load_sample_data()
-    
-    col1, col2 = st.sidebar.columns(2)
-    with col1:
-        st.metric("Total Students", len(df))
-    with col2:
-        high_risk = len(df[df['risk_level'] == 'High'])
-        st.metric("High Risk", high_risk)
-    
-    st.sidebar.markdown('</div>', unsafe_allow_html=True)
-    
-    return page
+    st.sidebar.write("Model trained on cleaned historical data from the course dataset.")
+    st.sidebar.markdown("</div>", unsafe_allow_html=True)
 
-def dashboard_page(df, model, scaler):
-    st.markdown('<h1 class="main-header">» DASHBOARD</h1>', unsafe_allow_html=True)
-    
-    col1, col2, col3, col4 = st.columns(4)
-    
-    with col1:
-        avg_gpa = df['gpa'].mean() if 'gpa' in df.columns else df['G3'].mean()
-        st.markdown(f'<div class="metric-card"><div class="metric-label">AVG GRADE</div><div class="metric-value">{avg_gpa:.2f}</div></div>', unsafe_allow_html=True)
-    
-    with col2:
-        avg_attendance = df['attendance_rate'].mean() if 'attendance_rate' in df.columns else df['absences'].mean()
-        label = "AVG ATTENDANCE" if 'attendance_rate' in df.columns else "AVG ABSENCES"
-        st.markdown(f'<div class="metric-card"><div class="metric-label">{label}</div><div class="metric-value">{avg_attendance:.1f}</div></div>', unsafe_allow_html=True)
-    
-    with col3:
-        high_risk_pct = (df['risk_level'] == 'High').sum() / len(df) * 100
-        st.markdown(f'<div class="metric-card"><div class="metric-label">HIGH RISK %</div><div class="metric-value">{high_risk_pct:.1f}%</div></div>', unsafe_allow_html=True)
-    
-    with col4:
-        completion_rate = df['assignment_completion'].mean() if 'assignment_completion' in df.columns else 0
-        st.markdown(f'<div class="metric-card"><div class="metric-label">COMPLETION RATE</div><div class="metric-value">{completion_rate:.1f}%</div></div>', unsafe_allow_html=True)
-    
-    st.markdown("<br>", unsafe_allow_html=True)
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        st.markdown('<div class="metric-label">RISK DISTRIBUTION</div>', unsafe_allow_html=True)
-        risk_counts = df['risk_level'].value_counts()
-        fig = px.pie(
-            values=risk_counts.values,
-            names=risk_counts.index,
-            color_discrete_sequence=['#000000', '#E6192E', '#cccccc']
-        )
-        fig.update_layout(height=300, margin=dict(l=0, r=0, t=0, b=0))
-        st.plotly_chart(fig, use_container_width=True)
-    
-    with col2:
-        st.markdown('<div class="metric-label">GRADE DISTRIBUTION</div>', unsafe_allow_html=True)
-        plot_col = 'gpa' if 'gpa' in df.columns else 'G3' if 'G3' in df.columns else 'G2'
-        fig = px.histogram(df, x=plot_col, nbins=20, color_discrete_sequence=['#000000'])
-        fig.update_layout(height=300, margin=dict(l=0, r=0, t=0, b=0))
-        st.plotly_chart(fig, use_container_width=True)
-    
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown('<div class="metric-label">RECENT ALERTS</div>', unsafe_allow_html=True)
-    high_risk_students = df[df['risk_level'] == 'High'].sort_values('risk_score', ascending=False).head(5)
-    
-    for _, student in high_risk_students.iterrows():
-        y_val = student['gpa'] if 'gpa' in student else 0
-        st.markdown(f"""
-        <div class="warning-box">
-            <strong>{student['name'].upper()}</strong> | RISK: {student['risk_score']:.2f} | GRADE: {y_val:.2f}
-        </div>
-        """, unsafe_allow_html=True)
 
-def data_viz_page(df):
-    st.markdown('<h1 class="main-header">» VISUALIZATION</h1>', unsafe_allow_html=True)
-    
-    col1, col2, col3 = st.columns(3)
-    
-    with col1:
-        selected_program = st.selectbox("Select Program", ['All'] + list(df['program'].unique()))
-    
-    with col2:
-        selected_year = st.selectbox("Select Year", ['All'] + list(df['year'].unique()))
-    
-    with col3:
-        selected_risk = st.selectbox("Select Risk Level", ['All'] + list(df['risk_level'].unique()))
-    
-    filtered_df = df.copy()
-    if selected_program != 'All':
-        filtered_df = filtered_df[filtered_df['program'] == selected_program]
-    if selected_year != 'All':
-        filtered_df = filtered_df[filtered_df['year'] == selected_year]
-    if selected_risk != 'All':
-        filtered_df = filtered_df[filtered_df['risk_level'] == selected_risk]
-    
-    st.info(f"Showing {len(filtered_df)} students out of {len(df)} total students")
-    
-    st.subheader("🔥 Correlation Matrix")
-    numeric_cols = ['gpa', 'attendance_rate', 'assignment_completion', 'study_hours_per_week', 'risk_score']
-    corr_matrix = filtered_df[numeric_cols].corr()
-    
-    fig = px.imshow(corr_matrix, text_auto=True, aspect="auto", color_continuous_scale='RdBu_r')
-    fig.update_layout(height=400)
-    st.plotly_chart(fig, use_container_width=True)
-    
-    st.subheader("📊 Multi-dimensional Analysis")
-    
-    chart_type = st.selectbox("Select Chart Type", ["3D Scatter", "Parallel Coordinates", "Box Plot"])
-    
-    if chart_type == "3D Scatter":
-        fig = px.scatter_3d(
-            filtered_df, x='gpa', y='attendance_rate', z='study_hours_per_week',
-            color='risk_level', size='assignment_completion',
-            hover_data=['name'], symbol='program',
-            color_discrete_map={'Low': '#26de81', 'Medium': '#ffa502', 'High': '#ff4757'}
+def student_input_form():
+    st.markdown('<h1 class="main-header">» STUDENT RISK PREDICTOR</h1>', unsafe_allow_html=True)
+    X_base, feature_columns, model, scaler = load_artifacts()
+
+    with st.form("student_form"):
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            age = st.number_input("Age", min_value=15, max_value=22, value=16)
+            Medu = st.slider("Mother's education (0-4)", 0, 4, 2)
+            Fedu = st.slider("Father's education (0-4)", 0, 4, 2)
+            traveltime = st.slider("Travel time to school (1-4)", 1, 4, 1)
+            studytime = st.slider("Weekly study time (1-4)", 1, 4, 2)
+        with col2:
+            failures = st.slider("Number of past class failures", 0, 4, 0)
+            famrel = st.slider("Family relationship quality (1-5)", 1, 5, 4)
+            freetime = st.slider("Free time after school (1-5)", 1, 5, 3)
+            goout = st.slider("Going out with friends (1-5)", 1, 5, 3)
+            Dalc = st.slider("Workday alcohol consumption (1-5)", 1, 5, 1)
+        with col3:
+            Walc = st.slider("Weekend alcohol consumption (1-5)", 1, 5, 1)
+            health = st.slider("Current health status (1-5)", 1, 5, 3)
+            absences = st.number_input("Number of absences", min_value=0, max_value=93, value=4)
+            G1 = st.number_input("First period grade G1 (0-20)", min_value=0, max_value=20, value=10)
+            G2 = st.number_input("Second period grade G2 (0-20)", min_value=0, max_value=20, value=10)
+
+        st.markdown('<div class="metric-label">Demographics and support</div>', unsafe_allow_html=True)
+        col4, col5, col6 = st.columns(3)
+        with col4:
+            school_MS = st.checkbox("School is MS (else GP)", value=False)
+            sex_M = st.checkbox("Student is male", value=False)
+            address_U = st.checkbox("Urban address", value=True)
+            famsize_LE3 = st.checkbox("Family size ≤ 3", value=False)
+            Pstatus_T = st.checkbox("Parents living together", value=True)
+        with col5:
+            Mjob_health = st.checkbox("Mother works in health", value=False)
+            Mjob_other = st.checkbox("Mother job: other", value=True)
+            Mjob_services = st.checkbox("Mother in services", value=False)
+            Mjob_teacher = st.checkbox("Mother is teacher", value=False)
+            Fjob_health = st.checkbox("Father works in health", value=False)
+        with col6:
+            Fjob_other = st.checkbox("Father job: other", value=True)
+            Fjob_services = st.checkbox("Father in services", value=False)
+            Fjob_teacher = st.checkbox("Father is teacher", value=False)
+            romantic_yes = st.checkbox("In a romantic relationship", value=False)
+
+        st.markdown('<div class="metric-label">Motivation and resources</div>', unsafe_allow_html=True)
+        col7, col8, col9 = st.columns(3)
+        with col7:
+            reason_home = st.checkbox("Reason: close to home", value=False)
+            reason_other = st.checkbox("Reason: other", value=False)
+            reason_reputation = st.checkbox("Reason: school reputation", value=True)
+        with col8:
+            guardian_mother = st.checkbox("Guardian is mother", value=True)
+            guardian_other = st.checkbox("Guardian is other", value=False)
+            schoolsup_yes = st.checkbox("School support", value=False)
+            famsup_yes = st.checkbox("Family support", value=True)
+        with col9:
+            paid_yes = st.checkbox("Extra paid classes", value=False)
+            activities_yes = st.checkbox("Extracurricular activities", value=True)
+            nursery_yes = st.checkbox("Attended nursery school", value=True)
+            higher_yes = st.checkbox("Wants higher education", value=True)
+            internet_yes = st.checkbox("Internet access at home", value=True)
+
+        submitted = st.form_submit_button("Analyze student")
+
+    if not submitted:
+        return
+
+    new_student = {
+        "age": age,
+        "Medu": Medu,
+        "Fedu": Fedu,
+        "traveltime": traveltime,
+        "studytime": studytime,
+        "failures": failures,
+        "famrel": famrel,
+        "freetime": freetime,
+        "goout": goout,
+        "Dalc": Dalc,
+        "Walc": Walc,
+        "health": health,
+        "absences": absences,
+        "G1": G1,
+        "G2": G2,
+        "school_MS": school_MS,
+        "sex_M": sex_M,
+        "address_U": address_U,
+        "famsize_LE3": famsize_LE3,
+        "Pstatus_T": Pstatus_T,
+        "Mjob_health": Mjob_health,
+        "Mjob_other": Mjob_other,
+        "Mjob_services": Mjob_services,
+        "Mjob_teacher": Mjob_teacher,
+        "Fjob_health": Fjob_health,
+        "Fjob_other": Fjob_other,
+        "Fjob_services": Fjob_services,
+        "Fjob_teacher": Fjob_teacher,
+        "reason_home": reason_home,
+        "reason_other": reason_other,
+        "reason_reputation": reason_reputation,
+        "guardian_mother": guardian_mother,
+        "guardian_other": guardian_other,
+        "schoolsup_yes": schoolsup_yes,
+        "famsup_yes": famsup_yes,
+        "paid_yes": paid_yes,
+        "activities_yes": activities_yes,
+        "nursery_yes": nursery_yes,
+        "higher_yes": higher_yes,
+        "internet_yes": internet_yes,
+        "romantic_yes": romantic_yes,
+    }
+
+    base_columns = X_base.columns.tolist()
+    new_df_base = pd.DataFrame([[new_student.get(col, X_base[col].iloc[0]) for col in base_columns]], columns=base_columns)
+    new_dummies = pd.get_dummies(new_df_base)
+    new_dummies = new_dummies.reindex(columns=feature_columns, fill_value=0)
+    new_scaled = scaler.transform(new_dummies.values)
+
+    probabilities = model.predict_proba(new_scaled)[0]
+    predicted_label = model.predict(new_scaled)[0]
+
+    st.markdown('<div class="metric-label">Predicted risk category</div>', unsafe_allow_html=True)
+    col_main, col_side = st.columns([2, 1])
+    with col_main:
+        st.markdown(
+            f"<div class='metric-card'><div class='metric-label'>MODEL PREDICTION</div>"
+            f"<div class='metric-value'>{predicted_label}</div></div>",
+            unsafe_allow_html=True,
         )
-        fig.update_layout(height=600)
-        st.plotly_chart(fig, use_container_width=True)
-    
-    elif chart_type == "Parallel Coordinates":
-        fig = px.parallel_coordinates(
-            filtered_df, dimensions=['gpa', 'attendance_rate', 'assignment_completion', 'study_hours_per_week'],
-            color='risk_score', color_continuous_scale=px.colors.sequential.Viridis
-        )
-        fig.update_layout(height=500)
-        st.plotly_chart(fig, use_container_width=True)
-    
-    else:  # Box Plot
-        fig = px.box(filtered_df, x='program', y='gpa', color='risk_level',
-                    color_discrete_map={'Low': '#26de81', 'Medium': '#ffa502', 'High': '#ff4757'})
-        fig.update_layout(height=400)
+    with col_side:
+        labels = model.classes_
+        prob_df = pd.DataFrame({"label": labels, "probability": probabilities})
+        fig = px.bar(prob_df, x="label", y="probability", color="label", range_y=[0, 1])
+        fig.update_layout(height=260, margin=dict(l=0, r=0, t=0, b=0), showlegend=False)
         st.plotly_chart(fig, use_container_width=True)
 
-def risk_analysis_page(df, model, scaler):
-    st.markdown('<h1 class="main-header">» RISK ANALYSIS</h1>', unsafe_allow_html=True)
-    
-    st.markdown('<div class="metric-label">STUDENT SELECTION</div>', unsafe_allow_html=True)
-    selected_student = st.selectbox("", df['name'].unique())
-    student_data = df[df['name'] == selected_student].iloc[0]
-    
-    col1, col2 = st.columns([1, 1])
-    
-    with col1:
-        st.markdown(f"""
+    recommendation = recommendation_for_label(predicted_label)
+    st.subheader("Study recommendation")
+    st.markdown(
+        f"""
         <div class="info-box">
-            <div class="metric-label">DATA PROFILE</div>
-            <p>ID: {student_data['student_id']}</p>
-            <p>PROGRAM: {student_data['program'].upper()}</p>
-            <p>YEAR: {student_data['year'].upper()}</p>
-            <p>AGE: {student_data['age']}</p>
+            <p>{recommendation}</p>
         </div>
-        """, unsafe_allow_html=True)
-    
-    with col2:
-        risk_level = student_data['risk_level']
-        st.markdown(f"""
-        <div class="metric-card">
-            <div class="metric-label">ASSESSMENT</div>
-            <div class="metric-value">{risk_level.upper()} RISK</div>
-            <p>SCORE: {student_data['risk_score']:.3f}</p>
-        </div>
-        """, unsafe_allow_html=True)
-    
-    col1, col2, col3, col4 = st.columns(4)
-    
-    with col1:
-        st.markdown(f'<div class="metric-card"><div class="metric-label">GPA</div><div class="metric-value">{student_data["gpa"]:.2f}</div></div>', unsafe_allow_html=True)
-    
-    with col2:
-        st.markdown(f'<div class="metric-card"><div class="metric-label">ATTENDANCE</div><div class="metric-value">{student_data["attendance_rate"]:.1f}%</div></div>', unsafe_allow_html=True)
-    
-    with col3:
-        st.markdown(f'<div class="metric-card"><div class="metric-label">COMPLETION</div><div class="metric-value">{student_data["assignment_completion"]:.1f}%</div></div>', unsafe_allow_html=True)
-    
-    with col4:
-        st.markdown(f'<div class="metric-card"><div class="metric-label">STUDY HOURS</div><div class="metric-value">{student_data["study_hours_per_week"]}</div></div>', unsafe_allow_html=True)
-    
-    st.subheader("🔮 Predictive Analysis")
-    
-    if model and scaler:
-        features = np.array([[
-            student_data['gpa'],
-            student_data['attendance_rate'],
-            student_data['assignment_completion'],
-            student_data['study_hours_per_week'],
-            student_data['extracurricular_activities']
-        ]])
-        
-        try:
-            features_scaled = scaler.transform(features)
-            
-            prediction = model.predict_proba(features_scaled)[0]
-            risk_prediction = prediction[1]  # Probability of high risk
-            
-            st.write(f"**Model Prediction:** {risk_prediction:.1%} probability of high risk")
-            
-            feature_importance = {
-                'GPA': 0.3,
-                'Attendance': 0.25,
-                'Assignment Completion': 0.2,
-                'Study Hours': 0.15,
-                'Extracurricular': 0.1
-            }
-            
-            fig = px.bar(
-                x=list(feature_importance.values()),
-                y=list(feature_importance.keys()),
-                orientation='h',
-                title="Feature Importance"
-            )
-            fig.update_layout(height=300)
-            st.plotly_chart(fig, use_container_width=True)
-            
-        except Exception as e:
-            st.error(f"Error making prediction: {e}")
-    else:
-        st.warning("ML model not available. Please train the model first.")
-    
-    st.subheader("💡 Recommendations")
-    
-    if risk_level == 'High':
-        st.markdown("""
-        <div class="warning-box">
-            <h4>Immediate Action Required</h4>
-            <ul>
-                <li>Schedule one-on-one meeting within 48 hours</li>
-                <li>Provide additional academic support</li>
-                <li>Monitor attendance closely</li>
-                <li>Connect with counseling services</li>
-            </ul>
-        </div>
-        """, unsafe_allow_html=True)
-    elif risk_level == 'Medium':
-        st.markdown("""
-        <div class="info-box">
-            <h4>Proactive Support Recommended</h4>
-            <ul>
-                <li>Check in weekly via email</li>
-                <li>Offer tutoring resources</li>
-                <li>Encourage study group participation</li>
-                <li>Monitor progress monthly</li>
-            </ul>
-        </div>
-        """, unsafe_allow_html=True)
-    else:
-        st.markdown("""
-        <div class="success-box">
-            <h4>Continue Current Support</h4>
-            <ul>
-                <li>Maintain regular check-ins</li>
-                <li>Provide advanced learning opportunities</li>
-                <li>Consider peer mentoring roles</li>
-                <li>Monitor for any changes</li>
-            </ul>
-        </div>
-        """, unsafe_allow_html=True)
+        """,
+        unsafe_allow_html=True,
+    )
 
-def settings_page():
-    st.markdown('<h1 class="main-header">⚙️ Settings</h1>', unsafe_allow_html=True)
-    
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        st.subheader("🎨 Display Settings")
-        
-        theme = st.selectbox("Theme", ["Light", "Dark", "Auto"])
-        color_scheme = st.selectbox("Color Scheme", ["Purple", "Blue", "Green", "Orange"])
-        
-        st.subheader("📊 Data Settings")
-        
-        auto_refresh = st.checkbox("Auto-refresh data", value=True)
-        refresh_interval = st.slider("Refresh interval (seconds)", 30, 300, 60)
-        
-        show_alerts = st.checkbox("Show real-time alerts", value=True)
-        alert_threshold = st.slider("Risk alert threshold", 0.5, 1.0, 0.7)
-    
-    with col2:
-        st.subheader("🔔 Notification Settings")
-        
-        email_notifications = st.checkbox("Email notifications", value=True)
-        sms_notifications = st.checkbox("SMS notifications", value=False)
-        
-        notification_frequency = st.selectbox(
-            "Notification Frequency",
-            ["Real-time", "Daily", "Weekly", "Monthly"]
-        )
-        
-        st.subheader("🔐 Privacy Settings")
-        
-        data_anonymization = st.checkbox("Anonymize student data", value=False)
-        export_logs = st.checkbox("Export access logs", value=False)
-        
-        retention_period = st.selectbox(
-            "Data Retention Period",
-            ["30 days", "90 days", "1 year", "5 years"]
-        )
-    
-    if st.button("💾 Save Settings"):
-        st.success("Settings saved successfully!")
-    
-    st.subheader("ℹ️ System Information")
-    
-    col1, col2, col3 = st.columns(3)
-    
-    with col1:
-        st.metric("Version", "1.0.0")
-    
-    with col2:
-        st.metric("Last Updated", datetime.now().strftime("%Y-%m-%d"))
-    
-    with col3:
-        st.metric("Status", "🟢 Online")
 
 def main():
     load_css()
-    
-    df = load_sample_data()
-    model = load_model()
-    scaler = load_scaler()
-    
-    page = sidebar()
-    
-    if page == "DASHBOARD":
-        dashboard_page(df, model, scaler)
-    elif page == "DATA VISUALIZATION":
-        data_viz_page(df)
-    elif page == "RISK ANALYSIS":
-        risk_analysis_page(df, model, scaler)
-    elif page == "SETTINGS":
-        settings_page()
-    
+    sidebar()
+    student_input_form()
     st.markdown("---")
     st.markdown(
         "<div style='text-align: center; color: #666;'>"
-        "© 2024 ILA Coach - Intelligent Learning Analytics Dashboard"
+        "© 2024 ILAAS Coach - Individual Risk Prediction using Trained Model"
         "</div>",
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
+
 
 if __name__ == "__main__":
     main()
