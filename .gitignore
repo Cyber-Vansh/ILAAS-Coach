@@ -13,3 +13,7 @@ __pycache__/
 .streamlit/
 
 *.log
+
+node_modules/
+.next/
+fake_history.sh
