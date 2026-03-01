@@ -12,7 +12,6 @@ df = pd.read_csv(data_path)
 
 target_col = df.columns[-1]
 
-# WE MUST NOT DROP G1 AND G2! The UI explicitly asks for them!
 X = df.drop(columns=[target_col])
 y = df[target_col]
 
@@ -20,7 +19,6 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42, stratify=y
 )
 
-# Use class_weight='balanced' to ensure 'At Risk' is properly learned since it's a minority class
 model = RandomForestClassifier(
     n_estimators=200,
     random_state=42,
