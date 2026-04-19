@@ -59,12 +59,12 @@ class AgentRequest(BaseModel):
     predicted_g3: float
 
 
-@app.get("/health")
+@app.get("/api/health")
 def health():
     return {"status": "ok"}
 
 
-@app.post("/predict")
+@app.post("/api/predict")
 def predict(req: PredictRequest):
     try:
         model = joblib.load(get_model_path("model/saved_model.pkl"))
@@ -153,7 +153,7 @@ class AgentState(TypedDict):
     practice_quiz: str
 
 
-@app.post("/agent")
+@app.post("/api/agent")
 def run_agent(req: AgentRequest):
     groq_api_key = os.getenv("GROQ_API_KEY")
     if not groq_api_key:
