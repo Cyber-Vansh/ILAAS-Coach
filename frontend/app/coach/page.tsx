@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { getApiUrl } from "@/utils/api";
 import styles from "./page.module.css";
 
 type Assessment = {
@@ -99,7 +100,7 @@ export default function CoachPage() {
     setError("");
     setResult(null);
     try {
-      const res = await fetch("http://localhost:8000/agent", {
+      const res = await fetch(getApiUrl("/agent"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

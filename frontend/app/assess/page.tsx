@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { getApiUrl } from "@/utils/api";
 import styles from "./page.module.css";
 
 const SUBJECTS = ["Mathematics", "Physics", "Chemistry", "Biology", "Computer Science", "Economics", "History", "English"];
@@ -60,7 +61,7 @@ export default function AssessPage() {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch("http://localhost:8000/predict", {
+      const res = await fetch(getApiUrl("/predict"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

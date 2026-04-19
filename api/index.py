@@ -20,11 +20,14 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:3001"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+def get_model_path(relative_path: str):
+    return os.path.join(os.path.dirname(__file__), "..", relative_path)
 
 
 class PredictRequest(BaseModel):
@@ -64,11 +67,11 @@ def health():
 @app.post("/predict")
 def predict(req: PredictRequest):
     try:
-        model = joblib.load("model/saved_model.pkl")
+        model = joblib.load(get_model_path("model/saved_model.pkl"))
         expected_columns = model.feature_names_in_
 
-        g3_model = joblib.load("model/g3_regressor.pkl")
-        g3_features = joblib.load("model/g3_features.pkl")
+        g3_model = joblib.load(get_model_path("model/g3_regressor.pkl"))
+        g3_features = joblib.load(get_model_path("model/g3_features.pkl"))
     except Exception as e:
         return {"error": f"Model load failed: {e}"}
 
