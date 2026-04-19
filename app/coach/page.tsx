@@ -164,7 +164,7 @@ export default function CoachPage() {
                 <div className={styles.metricItem}>
                   <span className={styles.metricLabel}>Predicted Final Grade</span>
                   <div className={styles.g3Score}>
-                    {assessment.predictedG3.toFixed(1)} <span className={styles.g3Max}>/ 20</span>
+                    {assessment.predictedG3?.toFixed(1) || "0.0"} <span className={styles.g3Max}>/ 20</span>
                   </div>
                 </div>
               </div>
