@@ -6,15 +6,16 @@ import plotly.graph_objects as go
 import sys
 import os
 
-# Add parent directory so we can import ui_style
+import os
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import ui_style
 
-# Page setup
+import ui_style
+
 st.set_page_config(page_title="Statistical Insights — ILAAS", page_icon="📉", layout="wide")
 ui_style.apply_german_ui()
 
-# Page header
 st.markdown("<h1>Statistical Insights</h1>", unsafe_allow_html=True)
 st.markdown(
     "<p class='lead'>Explore the Random Forest model's feature importances and dataset statistics. "
@@ -22,19 +23,15 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# -----------------------------------------------------------------
-# Load model and compute feature importances
-# -----------------------------------------------------------------
+)
+
 @st.cache_resource
 def get_feature_importances():
-    # Load the saved model file
     try:
         m = joblib.load("model/saved_model.pkl")
         if hasattr(m, 'feature_importances_'):
-            # Get importance score for each feature
             importances = m.feature_importances_
             features = m.feature_names_in_
-            # Put into a table and sort by importance (highest first)
             df = pd.DataFrame({'Feature': features, 'Importance': importances})
             df = df.sort_values(by='Importance', ascending=False).head(15)
             return df, m
@@ -44,9 +41,8 @@ def get_feature_importances():
 
 df_imp, model = get_feature_importances()
 
-# -----------------------------------------------------------------
-# Section 1: Feature Importance Chart
-# -----------------------------------------------------------------
+df_imp, model = get_feature_importances()
+
 if df_imp is not None:
     st.markdown("<h3>📊 Feature Importance Ranking</h3>", unsafe_allow_html=True)
     st.markdown(
@@ -56,7 +52,6 @@ if df_imp is not None:
         unsafe_allow_html=True
     )
 
-    # Create a horizontal bar chart with a nice purple color scale
     fig = px.bar(
         df_imp,
         x='Importance',
@@ -67,7 +62,6 @@ if df_imp is not None:
         labels={'Importance': 'Importance Score', 'Feature': 'Feature Name'}
     )
 
-    # Style the chart to match our dark theme
     fig.update_layout(
         plot_bgcolor='rgba(10, 10, 20, 0.0)',
         paper_bgcolor='rgba(10, 10, 20, 0.0)',
@@ -92,9 +86,8 @@ else:
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
-# -----------------------------------------------------------------
-# Section 2: System spec cards
-# -----------------------------------------------------------------
+st.markdown("<hr>", unsafe_allow_html=True)
+
 st.markdown("<h3>🤖 Model Specifications</h3>", unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns(3)
@@ -131,9 +124,8 @@ with col3:
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
-# -----------------------------------------------------------------
-# Section 3: How features map to risk (explanation table)
-# -----------------------------------------------------------------
+st.markdown("<hr>", unsafe_allow_html=True)
+
 st.markdown("<h3>💡 Feature Explanations</h3>", unsafe_allow_html=True)
 st.markdown(
     "<p>Below is a plain-English explanation of the most important features the model uses.</p>",
@@ -153,14 +145,12 @@ feature_descriptions = {
     "Medu": "Mother's education level — household education strongly impacts students.",
 }
 
-# Build a table for display
 table_rows = []
 for feature, description in feature_descriptions.items():
     table_rows.append({"Feature": feature, "Plain-English Meaning": description})
 
 df_desc = pd.DataFrame(table_rows)
 
-# Style the dataframe
 st.dataframe(
     df_desc,
     use_container_width=True,

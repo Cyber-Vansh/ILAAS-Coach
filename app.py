@@ -1,7 +1,6 @@
 import streamlit as st
 import ui_style
-
-# Configure the page
+import ui_style
 st.set_page_config(
     page_title="ILAAS — Intelligent Learning Analytics",
     page_icon="🧠",
@@ -9,7 +8,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Apply our custom dark-mode styles
 ui_style.apply_german_ui()
 
 # ---------------------------------------------------------------
@@ -23,9 +21,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# ---------------------------------------------------------------
-# Quick Stats Row
-# ---------------------------------------------------------------
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
@@ -62,9 +57,6 @@ with col4:
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
-# ---------------------------------------------------------------
-# System Modules Section
-# ---------------------------------------------------------------
 st.markdown("<h3>System Modules</h3>", unsafe_allow_html=True)
 
 col_a, col_b, col_c = st.columns(3)
@@ -103,9 +95,6 @@ with col_c:
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
-# ---------------------------------------------------------------
-# How it Works
-# ---------------------------------------------------------------
 st.markdown("<h3>How It Works</h3>", unsafe_allow_html=True)
 
 col1, col2, col3, col4 = st.columns(4)

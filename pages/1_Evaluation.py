@@ -4,19 +4,15 @@ import joblib
 import sys
 import os
 
-# Add parent directory so we can import ui_style
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import ui_style
 
-# Page setup
 st.set_page_config(page_title="Evaluation Matrix — ILAAS", page_icon="📊", layout="wide")
 ui_style.apply_german_ui()
 
-# Initialize the step counter so the form remembers what page we are on
 if 'step' not in st.session_state:
     st.session_state.step = 1
 
-# Page header
 st.markdown("<h1>Evaluation Matrix</h1>", unsafe_allow_html=True)
 st.markdown(
     "<p class='lead'>Complete the 3-step diagnostic form. "
@@ -24,12 +20,8 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# -----------------------------------------------------------------
-# Load the trained Random Forest model (cached so it only loads once)
-# -----------------------------------------------------------------
 @st.cache_resource
 def load_model():
-    # Try to load the saved model file
     try:
         m = joblib.load("model/saved_model.pkl")
         return m, m.feature_names_in_
@@ -38,32 +30,23 @@ def load_model():
 
 model, expected_columns = load_model()
 
-# If model is not found, stop and show error
 if not model:
     st.error("⚠️ Model file not found. Please run `model/retrain.py` first.")
     st.stop()
 
-# -----------------------------------------------------------------
-# Step progress indicator
-# -----------------------------------------------------------------
 current_step = min(st.session_state.step, 4)
 st.markdown(f"<div class='wizard-step'>Step {current_step} of 3 — ", unsafe_allow_html=True)
 
 step_names = {1: "Academic Grades", 2: "Student Details", 3: "Study Environment", 4: "Results"}
 st.markdown(f"<div class='wizard-step'>{step_names.get(current_step, '')}</div>", unsafe_allow_html=True)
 
-# Progress bar shows how far along we are
 st.progress(min(current_step / 3.0, 1.0))
 st.markdown("<br>", unsafe_allow_html=True)
 
-# -----------------------------------------------------------------
-# STEP 1: Academic Grades
-# -----------------------------------------------------------------
 if st.session_state.step == 1:
     with st.container():
         st.markdown("<h3>📝 Academic Performance</h3>", unsafe_allow_html=True)
 
-        # Sliders for grades (0-20 is the Portuguese grade scale)
         G1 = st.slider("Semester 1 Grade (0–20)", 0, 20, st.session_state.get('G1', 10),
                        help="First period grade out of 20")
         G2 = st.slider("Semester 2 Grade (0–20)", 0, 20, st.session_state.get('G2', 10),
@@ -71,17 +54,14 @@ if st.session_state.step == 1:
 
         col1, col2 = st.columns(2)
         with col1:
-            # How many classes has this student failed before?
             failures = st.number_input("Previous Class Failures", min_value=0, max_value=4,
                                        value=st.session_state.get('failures', 0))
         with col2:
-            # How many days absent this year?
             absences = st.number_input("Days Absent This Year", min_value=0, max_value=100,
                                        value=st.session_state.get('absences', 2))
 
         st.markdown("<br>", unsafe_allow_html=True)
         if st.button("Next: Student Details →", type="primary"):
-            # Save answers to session and move to step 2
             st.session_state.G1 = G1
             st.session_state.G2 = G2
             st.session_state.failures = failures
@@ -89,9 +69,6 @@ if st.session_state.step == 1:
             st.session_state.step = 2
             st.rerun()
 
-# -----------------------------------------------------------------
-# STEP 2: Student personal details
-# -----------------------------------------------------------------
 elif st.session_state.step == 2:
     with st.container():
         st.markdown("<h3>👤 Student Profile</h3>", unsafe_allow_html=True)
@@ -124,7 +101,6 @@ elif st.session_state.step == 2:
         col_back, col_next = st.columns(2)
         with col_back:
             if st.button("← Back"):
-                # Save and go back
                 st.session_state.age = age
                 st.session_state.sex = sex
                 st.session_state.address = address
@@ -135,7 +111,6 @@ elif st.session_state.step == 2:
                 st.rerun()
         with col_next:
             if st.button("Next: Environment →", type="primary"):
-                # Save and move forward
                 st.session_state.age = age
                 st.session_state.sex = sex
                 st.session_state.address = address
@@ -145,9 +120,6 @@ elif st.session_state.step == 2:
                 st.session_state.step = 3
                 st.rerun()
 
-# -----------------------------------------------------------------
-# STEP 3: Study environment
-# -----------------------------------------------------------------
 elif st.session_state.step == 3:
     with st.container():
         st.markdown("<h3>🏡 Study Environment</h3>", unsafe_allow_html=True)
@@ -200,21 +172,16 @@ elif st.session_state.step == 3:
                 st.session_state.step = 4
                 st.rerun()
 
-# -----------------------------------------------------------------
-# STEP 4: Show prediction result
-# -----------------------------------------------------------------
 elif st.session_state.step == 4:
     st.markdown("<h3>📈 Prediction Results</h3>", unsafe_allow_html=True)
 
     with st.spinner("Running the model..."):
-        # A quick heuristic flag — is this student already showing academic red flags?
         is_high_risk = (
             st.session_state.failures > 0 or
             st.session_state.absences > 15 or
             (st.session_state.G1 + st.session_state.G2) < 20
         )
 
-        # Build the raw input data dictionary to match what the model expects
         input_data = {
             'school': 'GP' if 'GP' in st.session_state.school_choice else 'MS',
             'sex': 'M' if st.session_state.sex == 'Male' else 'F',
@@ -254,17 +221,14 @@ elif st.session_state.step == 4:
             'G2': st.session_state.G2
         }
 
-        # Convert to a DataFrame so the model can process it
         df_raw = pd.DataFrame([input_data])
         df_encoded = pd.get_dummies(df_raw)
 
-        # Match the exact columns the model was trained on
         final_features = pd.DataFrame(0, index=[0], columns=expected_columns)
         for col in expected_columns:
             if col in df_encoded.columns:
                 final_features[col] = df_encoded[col]
 
-        # Fix data types to match training data
         numeric_cols = ['age', 'Medu', 'Fedu', 'traveltime', 'studytime', 'failures',
                         'famrel', 'freetime', 'goout', 'Dalc', 'Walc', 'health', 'absences', 'G1', 'G2']
         for col in final_features.columns:
@@ -273,12 +237,10 @@ elif st.session_state.step == 4:
             else:
                 final_features[col] = final_features[col].astype('bool')
 
-        # Get probability for each class, not just a single label
         classes = model.classes_
         probs = model.predict_proba(final_features)[0]
         prob_map = dict(zip(classes, probs))
 
-        # Use a low threshold of 15% to catch 'At Risk' students early
         if prob_map.get('At Risk', 0) >= 0.15:
             prediction = 'At Risk'
         elif prob_map.get('High Performer', 0) > prob_map.get('Average', 0):
@@ -286,7 +248,6 @@ elif st.session_state.step == 4:
         else:
             prediction = 'Average'
 
-    # ----- Show result based on prediction -----
     if prediction == "At Risk":
         st.markdown(f"""
         <div class="result-block risk-high">
@@ -326,7 +287,6 @@ elif st.session_state.step == 4:
         </div>
         """, unsafe_allow_html=True)
 
-    # Display individual class probabilities
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown("<h3>Probability Breakdown</h3>", unsafe_allow_html=True)
     prob_col1, prob_col2, prob_col3 = st.columns(3)
@@ -345,7 +305,6 @@ elif st.session_state.step == 4:
             </div>
             """, unsafe_allow_html=True)
 
-    # Save for the AI Coach page to use
     st.session_state['last_prediction'] = prediction
     st.session_state['last_prob_map'] = prob_map
 
@@ -357,7 +316,6 @@ elif st.session_state.step == 4:
             st.rerun()
     with col_new:
         if st.button("🔄 Start New Evaluation", type="primary"):
-            # Clear session state to start fresh
             for key in list(st.session_state.keys()):
                 del st.session_state[key]
             st.rerun()

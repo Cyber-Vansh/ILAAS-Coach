@@ -24,20 +24,29 @@ The Intelligent Learning Analytics & Action System (ILAAS) is a machine learning
 ```text
 ILAAS-Coach/
 ├── app.py                  # Main Streamlit application entry point
+├── api/                    # FastAPI Backend
+│   └── main.py             # FastAPI server with /predict and /agent endpoints
+├── frontend/               # Next.js Application
+│   ├── app/                # App router pages (Home, Assess, Coach)
+│   ├── components/         # Reusable React components
+│   └── package.json        # Node.js dependencies
 ├── requirements.txt        # Python dependencies
 ├── README.md               # Project documentation
 ├── .gitignore              # Git ignored files
 ├── data/                   # Raw datasets (student-mat.csv, student-por.csv)
 ├── data-cleaned/           # Cleaned and processed datasets
 ├── model/
-│   ├── saved_model.pkl     # Trained Random Forest model
-│   ├── retrain.py          # Script to retrain the model
+│   ├── saved_model.pkl     # Trained Random Forest classification model (Risk)
+│   ├── g3_regressor.pkl    # Trained Random Forest regressor model (G3 grade)
+│   ├── retrain.py          # Script to retrain the risk classification model
 │   └── training.ipynb      # Notebook detailing model training and evaluation
 ├── notebooks/
-│   └── data_cleaning.ipynb # Notebook for exploratory data analysis & preprocessing
+│   ├── data_cleaning.ipynb # Notebook for exploratory data analysis & preprocessing
+│   └── agentic_study_coach.ipynb # Notebook for developing the LangGraph workflow
 ├── pages/
 │   ├── 1_Evaluation.py     # Streamlit Evaluation Matrix page
-│   └── 2_Insights.py       # Streamlit Statistical Insights page
+│   ├── 2_Insights.py       # Streamlit Statistical Insights page
+│   └── 3_Agentic_Coach.py  # Streamlit fallback AI Coach interface
 └── ui_style.py             # Custom CSS and styling for the Streamlit UI
 ```
 

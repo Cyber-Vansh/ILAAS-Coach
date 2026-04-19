@@ -2,13 +2,9 @@ import streamlit as st
 import os
 import sys
 
-# Add parent directory so we can import ui_style
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import ui_style
 
-# -----------------------------------------------------------------
-# Page setup
-# -----------------------------------------------------------------
 st.set_page_config(
     page_title="AI Study Coach — ILAAS",
     page_icon="🤖",
@@ -16,7 +12,6 @@ st.set_page_config(
 )
 ui_style.apply_german_ui()
 
-# Page header
 st.markdown("<h1>AI Study Coach</h1>", unsafe_allow_html=True)
 st.markdown(
     "<p class='lead'>Powered by Groq & LangGraph. Enter a student's profile and goal, "
@@ -25,10 +20,8 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# -----------------------------------------------------------------
-# Try to import the LangGraph/Groq libraries.
-# If they are not installed, show a friendly error message.
-# -----------------------------------------------------------------
+)
+
 try:
     from langchain_groq import ChatGroq
     from langchain_core.messages import SystemMessage, HumanMessage
@@ -45,10 +38,8 @@ if not libs_ok:
     )
     st.stop()
 
-# -----------------------------------------------------------------
-# SECTION 1: API Key Input
-# The user must provide their Groq API Key to use this page.
-# -----------------------------------------------------------------
+    st.stop()
+
 st.markdown("<h3>🔑 Step 1: Enter Your Groq API Key</h3>", unsafe_allow_html=True)
 st.markdown(
     "<p>Get a free API key from "
@@ -57,7 +48,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Password input so the key is hidden on screen
 groq_api_key = st.text_input(
     "Groq API Key",
     type="password",
@@ -66,28 +56,24 @@ groq_api_key = st.text_input(
 )
 
 if groq_api_key:
-    # Save key in session so it sticks across reruns
     st.session_state['groq_api_key'] = groq_api_key
     st.success("✅ API Key received.")
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
-# -----------------------------------------------------------------
-# SECTION 2: Student Profile Input Form
-# -----------------------------------------------------------------
+st.markdown("<hr>", unsafe_allow_html=True)
+
 st.markdown("<h3>📋 Step 2: Student Profile</h3>", unsafe_allow_html=True)
 
 col_left, col_right = st.columns(2)
 
 with col_left:
-    # Student's name
     student_name = st.text_input(
         "Student Name",
         value=st.session_state.get('coach_name', ''),
         placeholder="e.g. Arjun Sharma"
     )
 
-    # What the student wants to achieve
     student_goals = st.text_area(
         "Learning Goal",
         value=st.session_state.get('coach_goals', ''),
@@ -95,7 +81,6 @@ with col_left:
         height=80
     )
 
-    # Subject they are struggling with
     subject = st.selectbox(
         "Main Subject",
         ["Mathematics", "Physics", "Chemistry", "Biology", "Computer Science",
@@ -106,7 +91,6 @@ with col_left:
     )
 
 with col_right:
-    # Recent quiz scores (we'll ask for 3)
     st.markdown("<p style='font-weight:600; color:#e8e8f0;'>Recent Quiz Scores (out of 100)</p>",
                 unsafe_allow_html=True)
 
@@ -114,7 +98,6 @@ with col_right:
     score2 = st.slider("Quiz 2 Score", 0, 100, st.session_state.get('score2', 55))
     score3 = st.slider("Quiz 3 Score", 0, 100, st.session_state.get('score3', 60))
 
-    # Study hours per week
     study_hours = st.slider("Study Hours per Week", 0, 40, st.session_state.get('study_hrs', 5))
 
 # Weak topics text input
@@ -126,10 +109,8 @@ weak_topics_raw = st.text_input(
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# -----------------------------------------------------------------
-# SECTION 3: If we already have an ML prediction from page 1,
-# offer to auto-fill the risk level. This connects both milestones.
-# -----------------------------------------------------------------
+st.markdown("<br>", unsafe_allow_html=True)
+
 if 'last_prediction' in st.session_state:
     st.info(
         f"💡 The Evaluation Matrix already classified this student as "
@@ -138,7 +119,6 @@ if 'last_prediction' in st.session_state:
     )
     ml_risk = st.session_state['last_prediction']
 else:
-    # If there's no prior prediction, let the user pick manually
     ml_risk_opt = st.selectbox(
         "Estimated Risk Level (from ML model or manual assessment)",
         ["At Risk", "Average", "High Performer"],
@@ -148,15 +128,13 @@ else:
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
-# -----------------------------------------------------------------
-# SECTION 4: Run the LangGraph Agent
-# -----------------------------------------------------------------
+st.markdown("<hr>", unsafe_allow_html=True)
+
 st.markdown("<h3>🚀 Step 3: Generate Study Plan</h3>", unsafe_allow_html=True)
 
 run_button = st.button("✨ Generate My Personalized Study Plan", type="primary")
 
 if run_button:
-    # ----- Basic validation -----
     if not groq_api_key:
         st.error("❌ Please enter your Groq API Key above.")
         st.stop()
@@ -167,7 +145,6 @@ if run_button:
         st.error("❌ Please enter the student's learning goal.")
         st.stop()
 
-    # Save to session state
     st.session_state['coach_name'] = student_name
     st.session_state['coach_goals'] = student_goals
     st.session_state['coach_subject'] = subject
@@ -177,12 +154,10 @@ if run_button:
     st.session_state['study_hrs'] = study_hours
     st.session_state['weak_topics_raw'] = weak_topics_raw
 
-    # Parse weak topics into a list
     weak_topics = [t.strip() for t in weak_topics_raw.split(',') if t.strip()]
     if not weak_topics:
         weak_topics = ["General concepts"]
 
-    # Build the performance dictionary to pass to the agent
     performance_data = {
         "subject": subject,
         "recent_scores": [score1, score2, score3],
@@ -192,10 +167,8 @@ if run_button:
         "ml_risk_classification": ml_risk
     }
 
-    # ----------------------------------------------------------------
-    # Define the LangGraph Agent State
-    # This is what the agent carries from step to step
-    # ----------------------------------------------------------------
+    }
+
     class AgentState(TypedDict):
         student_name: str
         student_goals: str
@@ -205,9 +178,8 @@ if run_button:
         resources: str
         practice_quiz: str
 
-    # ----------------------------------------------------------------
-    # Initialize the Groq LLM using the user's API key
-    # ----------------------------------------------------------------
+        practice_quiz: str
+
     try:
         llm = ChatGroq(
             model="openai/gpt-oss-120b",
@@ -219,10 +191,8 @@ if run_button:
         st.error(f"❌ Failed to connect to Groq API: {e}")
         st.stop()
 
-    # ----------------------------------------------------------------
-    # Define Agent Node 1: Diagnose the student
-    # This node reads the performance data and finds learning gaps
-    # ----------------------------------------------------------------
+        st.stop()
+
     def diagnose_student(state: AgentState):
         prompt = f"""You are a learning analytics expert and academic counselor.
 
@@ -245,10 +215,8 @@ Keep it honest, encouraging, and easy to understand."""
         response = llm.invoke([HumanMessage(content=prompt)])
         return {"learning_diagnosis": response.content}
 
-    # ----------------------------------------------------------------
-    # Define Agent Node 2: Create a 4-week study plan
-    # This node reads the diagnosis and builds a weekly plan
-    # ----------------------------------------------------------------
+        return {"learning_diagnosis": response.content}
+
     def make_plan(state: AgentState):
         prompt = f"""You are a professional academic coach creating a study plan.
 
@@ -277,10 +245,8 @@ Format with clear Week headings and bullet points."""
         ])
         return {"study_plan": response.content}
 
-    # ----------------------------------------------------------------
-    # Define Agent Node 3: Recommend learning resources
-    # This node recommends free online resources based on the plan
-    # ----------------------------------------------------------------
+        return {"study_plan": response.content}
+
     def fetch_resources(state: AgentState):
         prompt = f"""You are a helpful academic librarian.
 
@@ -300,10 +266,8 @@ Focus specifically on: {state['performance_data']['weak_topics']}"""
         response = llm.invoke([HumanMessage(content=prompt)])
         return {"resources": response.content}
 
-    # ----------------------------------------------------------------
-    # Define Agent Node 4: Generate a practice quiz (Extension Feature)
-    # This node writes 5 multiple-choice questions based on the diagnosis
-    # ----------------------------------------------------------------
+        return {"resources": response.content}
+
     def make_quiz(state: AgentState):
         prompt = f"""You are an experienced teacher writing a quick diagnostic quiz.
 
@@ -325,10 +289,8 @@ Make questions progressively harder from Q1 (easy) to Q5 (challenging)."""
         response = llm.invoke([HumanMessage(content=prompt)])
         return {"practice_quiz": response.content}
 
-    # ----------------------------------------------------------------
-    # Build the LangGraph workflow
-    # Connect all the nodes in order like a flowchart
-    # ----------------------------------------------------------------
+        return {"practice_quiz": response.content}
+
     workflow = StateGraph(AgentState)
 
     workflow.add_node("Diagnose", diagnose_student)
@@ -344,10 +306,8 @@ Make questions progressively harder from Q1 (easy) to Q5 (challenging)."""
 
     study_coach = workflow.compile()
 
-    # ----------------------------------------------------------------
-    # Run the agent — this calls each node one by one
-    # We use placeholders to show the output as each step completes
-    # ----------------------------------------------------------------
+    study_coach = workflow.compile()
+
     initial_state = {
         "student_name": student_name,
         "student_goals": student_goals,
@@ -358,7 +318,6 @@ Make questions progressively harder from Q1 (easy) to Q5 (challenging)."""
         "practice_quiz": ""
     }
 
-    # Display a loading message while each step runs
     step_icons = {
         "Diagnose": ("🔍", "Diagnosing learning gaps..."),
         "Plan":     ("📅", "Building your 4-week study plan..."),
@@ -369,12 +328,10 @@ Make questions progressively harder from Q1 (easy) to Q5 (challenging)."""
     result = {}
     with st.status("AI Study Coach is working...", expanded=True) as status:
         try:
-            # Stream the graph execution step by step
             for step_output in study_coach.stream(initial_state, stream_mode="updates"):
                 for node_name, node_result in step_output.items():
                     icon, msg = step_icons.get(node_name, ("⚙️", f"Running {node_name}..."))
                     st.write(f"{icon} {msg}")
-                    # Accumulate results
                     result.update(node_result)
 
             status.update(label="✅ Study Plan Ready!", state="complete")
@@ -384,13 +341,10 @@ Make questions progressively harder from Q1 (easy) to Q5 (challenging)."""
             st.error(f"Error: {e}")
             st.stop()
 
-    # Save result to session state so it persists when the page rerenders
     st.session_state['agent_result'] = result
 
 
-# -----------------------------------------------------------------
-# SECTION 5: Display the Agent's Output
-# -----------------------------------------------------------------
+
 if 'agent_result' in st.session_state and st.session_state['agent_result']:
     result = st.session_state['agent_result']
 
@@ -400,7 +354,6 @@ if 'agent_result' in st.session_state and st.session_state['agent_result']:
         unsafe_allow_html=True
     )
 
-    # ---- Diagnosis ----
     if result.get("learning_diagnosis"):
         st.markdown("""
         <div class="agent-section">
@@ -412,7 +365,6 @@ if 'agent_result' in st.session_state and st.session_state['agent_result']:
         )
         st.markdown("</div>", unsafe_allow_html=True)
 
-    # ---- Study Plan ----
     if result.get("study_plan"):
         st.markdown("""
         <div class="agent-section">
@@ -424,7 +376,6 @@ if 'agent_result' in st.session_state and st.session_state['agent_result']:
         )
         st.markdown("</div>", unsafe_allow_html=True)
 
-    # ---- Resources ----
     if result.get("resources"):
         st.markdown("""
         <div class="agent-section">
@@ -436,7 +387,6 @@ if 'agent_result' in st.session_state and st.session_state['agent_result']:
         )
         st.markdown("</div>", unsafe_allow_html=True)
 
-    # ---- Practice Quiz (Extension Feature) ----
     if result.get("practice_quiz"):
         st.markdown("""
         <div class="agent-section">
@@ -448,9 +398,7 @@ if 'agent_result' in st.session_state and st.session_state['agent_result']:
         )
         st.markdown("</div>", unsafe_allow_html=True)
 
-    # ---- Reset Button ----
     st.markdown("<br>", unsafe_allow_html=True)
     if st.button("🔄 Generate New Plan", type="primary"):
-        # Clear the result and let the user start over
         del st.session_state['agent_result']
         st.rerun()
