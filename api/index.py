@@ -27,7 +27,7 @@ app.add_middleware(
 )
 
 def get_model_path(relative_path: str):
-    return os.path.join(os.path.dirname(__file__), "..", relative_path)
+    return os.path.join(os.path.dirname(__file__), relative_path)
 
 
 class PredictRequest(BaseModel):

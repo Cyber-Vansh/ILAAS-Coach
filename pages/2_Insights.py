@@ -28,7 +28,7 @@ st.markdown(
 @st.cache_resource
 def get_feature_importances():
     try:
-        m = joblib.load("model/saved_model.pkl")
+        m = joblib.load("api/model/saved_model.pkl")
         if hasattr(m, 'feature_importances_'):
             importances = m.feature_importances_
             features = m.feature_names_in_

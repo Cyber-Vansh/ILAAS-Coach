@@ -23,7 +23,7 @@ st.markdown(
 @st.cache_resource
 def load_model():
     try:
-        m = joblib.load("model/saved_model.pkl")
+        m = joblib.load("api/model/saved_model.pkl")
         return m, m.feature_names_in_
     except Exception:
         return None, None
