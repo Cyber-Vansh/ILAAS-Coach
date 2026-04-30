@@ -16,4 +16,3 @@ __pycache__/
 
 node_modules/
 .next/
-fake_history.sh
